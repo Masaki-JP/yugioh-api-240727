@@ -8,7 +8,7 @@ struct CardDetailView: View {
     }
 
     var body: some View {
-        if let uiImage = UIImage(data: card.data) {
+        if let uiImage = UIImage(data: card.imageData) {
             Image(uiImage: uiImage)
                 .resizable()
                 .scaledToFit()
