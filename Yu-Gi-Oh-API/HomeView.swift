@@ -3,15 +3,16 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         HomeViewContent {
-            VStack {
-                Spacer()
-                ScrollableCardRow("New Cards", lines: 2)
-                ScrollableCardRow("Favorite Cards", lines: 2)
-                Spacer()
+            ScrollView {
+                LazyVStack {
+                    ScrollableCardRow("New Cards", lines: 2)
+                    ScrollableCardRow("Favorite Cards", lines: 2)
+                    ScrollableCardRow("All Cards", lines: 2)
+                }
+            }
+            .safeAreaInset(edge: .bottom) {
                 getCardsButton
-                Text("(You can get 15 cards.)")
-                    .font(.callout)
-                    .padding(.bottom, 10)
+                    .padding(.bottom)
             }
         }
     }
