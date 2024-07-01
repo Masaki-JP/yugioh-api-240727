@@ -43,6 +43,5 @@ struct ScrollableCardRow: View {
 #Preview {
     //    ScrollableCardRow("Favorites")
     ScrollableCardRow("Favorites", lines: 2)
+        .preferredColorScheme(.dark)
 }
-
-

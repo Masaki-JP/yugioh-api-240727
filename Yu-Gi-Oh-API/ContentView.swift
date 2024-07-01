@@ -24,6 +24,7 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .modelContainer(for: Card.self, inMemory: true)
+        .preferredColorScheme(.dark)
 }
 
 //struct ContentView: View {

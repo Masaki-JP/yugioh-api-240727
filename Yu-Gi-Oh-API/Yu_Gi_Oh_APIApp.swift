@@ -20,6 +20,7 @@ struct Yu_Gi_Oh_APIApp: App {
         WindowGroup {
             ContentView()
                 .modelContainer(sharedModelContainer)
+                .preferredColorScheme(.dark)
         }
     }
 }

@@ -11,4 +11,5 @@ struct SettingView: View {
 
 #Preview {
     SettingView()
+        .preferredColorScheme(.dark)
 }

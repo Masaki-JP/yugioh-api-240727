@@ -19,4 +19,5 @@ struct ListView: View {
 
 #Preview {
     ListView()
+        .preferredColorScheme(.dark)
 }

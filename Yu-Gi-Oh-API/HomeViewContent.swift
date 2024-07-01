@@ -38,4 +38,5 @@ struct HomeViewContent<Content: View>: View {
     HomeViewContent {
         Text("Hello, world.")
     }
+    .preferredColorScheme(.dark)
 }
