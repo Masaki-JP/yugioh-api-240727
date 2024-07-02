@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C46F9622C33EF3400547832 /* VerticalOffsetPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46F9612C33EF3400547832 /* VerticalOffsetPreferenceKey.swift */; };
 		4C72C3002C31A20F00C585D2 /* ScrollableCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C72C2FF2C31A20F00C585D2 /* ScrollableCardRow.swift */; };
 		4C72C3022C31AE5100C585D2 /* HomeViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C72C3012C31AE5100C585D2 /* HomeViewContent.swift */; };
 		4C8FA6AC2C00F5590001FE3F /* Yu_Gi_Oh_APIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8FA6AB2C00F5590001FE3F /* Yu_Gi_Oh_APIApp.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C46F9612C33EF3400547832 /* VerticalOffsetPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalOffsetPreferenceKey.swift; sourceTree = "<group>"; };
 		4C72C2FF2C31A20F00C585D2 /* ScrollableCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableCardRow.swift; sourceTree = "<group>"; };
 		4C72C3012C31AE5100C585D2 /* HomeViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewContent.swift; sourceTree = "<group>"; };
 		4C8FA6A82C00F5590001FE3F /* Yu-Gi-Oh-API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yu-Gi-Oh-API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 				4C9CC7F42C3043FE00F58C9E /* SettingView.swift */,
 				4CE1BACC2C013F70003BA615 /* APIClient.swift */,
 				4CE1BACE2C013F87003BA615 /* Card.swift */,
+				4C46F9612C33EF3400547832 /* VerticalOffsetPreferenceKey.swift */,
 				4C8FA6AF2C00F55B0001FE3F /* Assets.xcassets */,
 				4C8FA6B12C00F55B0001FE3F /* Preview Content */,
 			);
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C8FA6AE2C00F5590001FE3F /* ContentView.swift in Sources */,
+				4C46F9622C33EF3400547832 /* VerticalOffsetPreferenceKey.swift in Sources */,
 				4C8FA6AC2C00F5590001FE3F /* Yu_Gi_Oh_APIApp.swift in Sources */,
 				4CE1BAD12C013FF0003BA615 /* CardDetailView.swift in Sources */,
 				4C9CC7F72C30449800F58C9E /* ListView.swift in Sources */,
