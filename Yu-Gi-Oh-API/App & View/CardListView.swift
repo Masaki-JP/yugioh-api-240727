@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ListView: View {
+struct CardListView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -18,6 +18,6 @@ struct ListView: View {
 }
 
 #Preview {
-    ListView()
+    CardListView()
         .preferredColorScheme(.dark)
 }

@@ -13,7 +13,7 @@ struct ContentView: View {
         TabView {
             HomeView()
                 .tabItem { Label("Home", systemImage: "house") }
-            ListView()
+            CardListView()
                 .tabItem { Label("List", systemImage: "list.bullet") }
             SettingView()
                 .tabItem { Label("Setting", systemImage: "gearshape") }
