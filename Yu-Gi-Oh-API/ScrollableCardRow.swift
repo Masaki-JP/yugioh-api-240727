@@ -6,9 +6,8 @@ struct ScrollableCardRow: View {
     let lines: Int
 
     init(_ title: String, lines: Int? = nil) {
-        if let lines, lines < 0 { fatalError() }
         self.title = title
-        self.lines = lines ?? 1
+        self.lines = if let lines, lines > 0 { lines } else { 1 }
     }
 
     var body: some View {
