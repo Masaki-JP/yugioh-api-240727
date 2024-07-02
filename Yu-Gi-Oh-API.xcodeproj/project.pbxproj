@@ -75,20 +75,8 @@
 		4C8FA6AA2C00F5590001FE3F /* Yu-Gi-Oh-API */ = {
 			isa = PBXGroup;
 			children = (
-				4C8FA6AB2C00F5590001FE3F /* Yu_Gi_Oh_APIApp.swift */,
-				4C8FA6AD2C00F5590001FE3F /* ContentView.swift */,
-				4CE1BAD02C013FF0003BA615 /* CardDetailView.swift */,
-				4C9CC7F82C30456900F58C9E /* HomeView.swift */,
-				4C46F9672C33F3B600547832 /* HomeViewContentBody.swift */,
-				4C72C3012C31AE5100C585D2 /* HomeViewContent.swift */,
-				4C72C2FF2C31A20F00C585D2 /* ScrollableCardRow.swift */,
-				4C9CC7F62C30449800F58C9E /* ListView.swift */,
-				4C9CC7F42C3043FE00F58C9E /* SettingView.swift */,
-				4CE1BACC2C013F70003BA615 /* APIClient.swift */,
-				4CE1BACE2C013F87003BA615 /* YDMCard.swift */,
-				4C46F9612C33EF3400547832 /* VerticalOffsetPreferenceKey.swift */,
-				4C46F9632C33EF5300547832 /* IsScrollingPreferenceKey.swift */,
-				4C46F9652C33EF9300547832 /* ScrollObserver.swift */,
+				4C9947C92C342A9200641AB4 /* App & View */,
+				4C9947CA2C342A9600641AB4 /* Model & Util & Service */,
 				4C8FA6AF2C00F55B0001FE3F /* Assets.xcassets */,
 				4C8FA6B12C00F55B0001FE3F /* Preview Content */,
 			);
@@ -101,6 +89,34 @@
 				4C8FA6B22C00F55B0001FE3F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4C9947C92C342A9200641AB4 /* App & View */ = {
+			isa = PBXGroup;
+			children = (
+				4C8FA6AB2C00F5590001FE3F /* Yu_Gi_Oh_APIApp.swift */,
+				4C8FA6AD2C00F5590001FE3F /* ContentView.swift */,
+				4C9CC7F82C30456900F58C9E /* HomeView.swift */,
+				4C72C3012C31AE5100C585D2 /* HomeViewContent.swift */,
+				4C46F9672C33F3B600547832 /* HomeViewContentBody.swift */,
+				4C72C2FF2C31A20F00C585D2 /* ScrollableCardRow.swift */,
+				4C9CC7F62C30449800F58C9E /* ListView.swift */,
+				4CE1BAD02C013FF0003BA615 /* CardDetailView.swift */,
+				4C9CC7F42C3043FE00F58C9E /* SettingView.swift */,
+			);
+			path = "App & View";
+			sourceTree = "<group>";
+		};
+		4C9947CA2C342A9600641AB4 /* Model & Util & Service */ = {
+			isa = PBXGroup;
+			children = (
+				4CE1BACE2C013F87003BA615 /* YDMCard.swift */,
+				4C46F9612C33EF3400547832 /* VerticalOffsetPreferenceKey.swift */,
+				4C46F9632C33EF5300547832 /* IsScrollingPreferenceKey.swift */,
+				4C46F9652C33EF9300547832 /* ScrollObserver.swift */,
+				4CE1BACC2C013F70003BA615 /* APIClient.swift */,
+			);
+			path = "Model & Util & Service";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
