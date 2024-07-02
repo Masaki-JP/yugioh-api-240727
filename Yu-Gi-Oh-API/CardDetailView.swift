@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct CardDetailView: View {
-    private let card: Card
+    private let card: YDMCard
 
-    init(_ card: Card) {
+    init(_ card: YDMCard) {
         self.card = card
     }
 

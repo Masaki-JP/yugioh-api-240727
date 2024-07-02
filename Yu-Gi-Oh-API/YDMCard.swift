@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class Card {
+final class YDMCard { // Yu-Gi-Oh Duel Monsters
     let name: String
     let imageData: Data
     var isFavorite: Bool

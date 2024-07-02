@@ -23,7 +23,7 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Card.self, inMemory: true)
+        .modelContainer(for: YDMCard.self, inMemory: true)
         .preferredColorScheme(.dark)
 }
 

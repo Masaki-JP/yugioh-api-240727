@@ -5,7 +5,7 @@ import SwiftData
 struct Yu_Gi_Oh_APIApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Card.self,
+            YDMCard.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

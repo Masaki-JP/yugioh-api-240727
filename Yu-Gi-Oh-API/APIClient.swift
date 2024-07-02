@@ -1,7 +1,7 @@
 import Foundation
 
 struct APIClient {
-    func fetch() async -> Card? {
+    func fetch() async -> YDMCard? {
         guard
             let url = URL(string: "https://db.ygoprodeck.com/api/v7/randomcard.php"),
             let (data, _) = try? await URLSession.shared.data(from: url),
