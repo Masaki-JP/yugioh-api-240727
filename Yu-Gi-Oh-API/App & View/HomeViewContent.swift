@@ -17,19 +17,17 @@ struct HomeViewContent<Content: View>: View {
     }
 
     var header: some View {
-        HStack {
+        HStack(spacing: 0) {
             Image(systemName: "line.3.horizontal")
                 .resizable()
-                .frame(width: 30, height: 20)
-            Spacer()
+                .frame(width: 30, height: 20) // ①
             Image(.yuGiOh)
                 .resizable().scaledToFit()
                 .frame(height: 50)
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-            Spacer()
+                .frame(maxWidth: .infinity)
             Image(systemName: "magnifyingglass")
                 .resizable().scaledToFit()
-                .frame(width: 30)
+                .frame(width: 30) // ①
         }
     }
 }
