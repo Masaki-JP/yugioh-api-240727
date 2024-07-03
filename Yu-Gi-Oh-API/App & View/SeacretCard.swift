@@ -18,6 +18,7 @@ struct SeacretCard: View {
                         }
                 }
             }
+            .sensoryFeedback(.impact, trigger: isCovering)
     }
 
     var cardCover: some View {
