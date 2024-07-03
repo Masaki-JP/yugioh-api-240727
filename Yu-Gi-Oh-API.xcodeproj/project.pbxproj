@@ -18,6 +18,7 @@
 		4C8FA6B02C00F55B0001FE3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8FA6AF2C00F55B0001FE3F /* Assets.xcassets */; };
 		4C8FA6B32C00F55B0001FE3F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8FA6B22C00F55B0001FE3F /* Preview Assets.xcassets */; };
 		4C9947F42C35201400641AB4 /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = 4C9947F32C35201400641AB4 /* Pow */; };
+		4C9947F12C351A8300641AB4 /* GetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9947F02C351A8300641AB4 /* GetCardView.swift */; };
 		4C9CC7F52C3043FE00F58C9E /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9CC7F42C3043FE00F58C9E /* SettingView.swift */; };
 		4C9CC7F72C30449800F58C9E /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9CC7F62C30449800F58C9E /* CardListView.swift */; };
 		4C9CC7F92C30456900F58C9E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9CC7F82C30456900F58C9E /* HomeView.swift */; };
@@ -38,6 +39,7 @@
 		4C8FA6AD2C00F5590001FE3F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4C8FA6AF2C00F55B0001FE3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C8FA6B22C00F55B0001FE3F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4C9947F02C351A8300641AB4 /* GetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCardView.swift; sourceTree = "<group>"; };
 		4C9CC7F42C3043FE00F58C9E /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		4C9CC7F62C30449800F58C9E /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		4C9CC7F82C30456900F58C9E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				4C72C3012C31AE5100C585D2 /* HomeViewContent.swift */,
 				4C46F9672C33F3B600547832 /* HomeViewContentBody.swift */,
 				4C72C2FF2C31A20F00C585D2 /* ScrollableCardRow.swift */,
+				4C9947F02C351A8300641AB4 /* GetCardView.swift */,
 				4C9CC7F62C30449800F58C9E /* CardListView.swift */,
 				4CE1BAD02C013FF0003BA615 /* CardDetailView.swift */,
 				4C9CC7F42C3043FE00F58C9E /* SettingView.swift */,
@@ -205,6 +208,7 @@
 				4CE1BAD12C013FF0003BA615 /* CardDetailView.swift in Sources */,
 				4C9CC7F72C30449800F58C9E /* CardListView.swift in Sources */,
 				4C72C3002C31A20F00C585D2 /* ScrollableCardRow.swift in Sources */,
+				4C9947F12C351A8300641AB4 /* GetCardView.swift in Sources */,
 				4C46F9642C33EF5300547832 /* IsScrollingPreferenceKey.swift in Sources */,
 				4C9CC7F52C3043FE00F58C9E /* SettingView.swift in Sources */,
 				4C9CC7F92C30456900F58C9E /* HomeView.swift in Sources */,
