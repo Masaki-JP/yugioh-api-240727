@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SeacretCard: View {
+struct SecretCard: View {
     @State private var isCovering = true
 
     var body: some View {
@@ -35,6 +35,6 @@ struct SeacretCard: View {
 }
 
 #Preview {
-    SeacretCard()
+    SecretCard()
         .preferredColorScheme(.dark)
 }

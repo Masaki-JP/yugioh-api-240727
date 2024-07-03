@@ -14,7 +14,7 @@ struct GetCardView: View {
             LazyVStack(spacing: 0) {
                 ForEach(0..<availableCard, id: \.self) { i in
                     VStack {
-                        SeacretCard()
+                        SecretCard()
                             .frame(maxWidth: 400)
                         if i != availableCard - 1 {
                             Text("Swipe up to next card")
