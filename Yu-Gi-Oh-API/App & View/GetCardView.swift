@@ -15,6 +15,7 @@ struct GetCardView: View {
                 ForEach(0..<availableCard, id: \.self) { i in
                     VStack {
                         SeacretCard()
+                            .frame(maxWidth: 400)
                         if i != availableCard - 1 {
                             Text("Swipe up to next card")
                                 .font(.title3)
