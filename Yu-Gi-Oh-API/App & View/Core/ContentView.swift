@@ -60,7 +60,7 @@ struct ContentView: View {
 //
 //    private func addCard() {
 //        Task {
-//            guard let card = await APIClient().fetch() else { return }
+//            guard let card = await YuGiOhAPIClient().fetch() else { return }
 //            modelContext.insert(card)
 //        }
 //    }

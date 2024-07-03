@@ -23,7 +23,7 @@
 		4C9CC7F52C3043FE00F58C9E /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9CC7F42C3043FE00F58C9E /* SettingView.swift */; };
 		4C9CC7F72C30449800F58C9E /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9CC7F62C30449800F58C9E /* CardListView.swift */; };
 		4C9CC7F92C30456900F58C9E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9CC7F82C30456900F58C9E /* HomeView.swift */; };
-		4CE1BACD2C013F70003BA615 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1BACC2C013F70003BA615 /* APIClient.swift */; };
+		4CE1BACD2C013F70003BA615 /* YuGiOhAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1BACC2C013F70003BA615 /* YuGiOhAPIClient.swift */; };
 		4CE1BACF2C013F87003BA615 /* YDMCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1BACE2C013F87003BA615 /* YDMCard.swift */; };
 		4CE1BAD12C013FF0003BA615 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1BAD02C013FF0003BA615 /* CardDetailView.swift */; };
 /* End PBXBuildFile section */
@@ -45,7 +45,7 @@
 		4C9CC7F42C3043FE00F58C9E /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		4C9CC7F62C30449800F58C9E /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		4C9CC7F82C30456900F58C9E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		4CE1BACC2C013F70003BA615 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		4CE1BACC2C013F70003BA615 /* YuGiOhAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YuGiOhAPIClient.swift; sourceTree = "<group>"; };
 		4CE1BACE2C013F87003BA615 /* YDMCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMCard.swift; sourceTree = "<group>"; };
 		4CE1BAD02C013FF0003BA615 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,7 +114,7 @@
 				4C46F9612C33EF3400547832 /* VerticalOffsetPreferenceKey.swift */,
 				4C46F9632C33EF5300547832 /* IsScrollingPreferenceKey.swift */,
 				4C46F9652C33EF9300547832 /* ScrollObserver.swift */,
-				4CE1BACC2C013F70003BA615 /* APIClient.swift */,
+				4CE1BACC2C013F70003BA615 /* YuGiOhAPIClient.swift */,
 			);
 			path = "Model & Util & Service";
 			sourceTree = "<group>";
@@ -241,7 +241,7 @@
 				4C9CC7F92C30456900F58C9E /* HomeView.swift in Sources */,
 				4C72C3022C31AE5100C585D2 /* HomeViewContent.swift in Sources */,
 				4C9947F62C3528E200641AB4 /* SecretCard.swift in Sources */,
-				4CE1BACD2C013F70003BA615 /* APIClient.swift in Sources */,
+				4CE1BACD2C013F70003BA615 /* YuGiOhAPIClient.swift in Sources */,
 				4CE1BACF2C013F87003BA615 /* YDMCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

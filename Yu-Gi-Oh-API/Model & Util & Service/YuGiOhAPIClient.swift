@@ -1,6 +1,6 @@
 import Foundation
 
-struct APIClient {
+struct YuGiOhAPIClient {
     func fetch() async -> YDMCard? {
         guard
             let url = URL(string: "https://db.ygoprodeck.com/api/v7/randomcard.php"),
