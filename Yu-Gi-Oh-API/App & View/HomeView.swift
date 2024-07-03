@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var isScrolling = false
+    @State private var isShowingGetCardView = false
     @Namespace private var namespace
 
     var body: some View {
@@ -19,10 +20,15 @@ struct HomeView: View {
                 }
                 .animation(.easeInOut(duration: 0.1), value: isScrolling)
         }
+        .fullScreenCover(isPresented: $isShowingGetCardView) {
+            GetCardView()
+        }
     }
 
     var getCardsButton: some View {
-        Button {} label: {
+        Button {
+            isShowingGetCardView = true
+        } label: {
             if isScrolling == false {
                 Text("Let's get new card!!")
                     .font(.title2)
