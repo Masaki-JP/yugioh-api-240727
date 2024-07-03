@@ -17,6 +17,7 @@
 		4C8FA6AE2C00F5590001FE3F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8FA6AD2C00F5590001FE3F /* ContentView.swift */; };
 		4C8FA6B02C00F55B0001FE3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8FA6AF2C00F55B0001FE3F /* Assets.xcassets */; };
 		4C8FA6B32C00F55B0001FE3F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8FA6B22C00F55B0001FE3F /* Preview Assets.xcassets */; };
+		4C9947F42C35201400641AB4 /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = 4C9947F32C35201400641AB4 /* Pow */; };
 		4C9CC7F52C3043FE00F58C9E /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9CC7F42C3043FE00F58C9E /* SettingView.swift */; };
 		4C9CC7F72C30449800F58C9E /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9CC7F62C30449800F58C9E /* CardListView.swift */; };
 		4C9CC7F92C30456900F58C9E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9CC7F82C30456900F58C9E /* HomeView.swift */; };
@@ -50,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C9947F42C35201400641AB4 /* Pow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +137,9 @@
 			dependencies = (
 			);
 			name = "Yu-Gi-Oh-API";
+			packageProductDependencies = (
+				4C9947F32C35201400641AB4 /* Pow */,
+			);
 			productName = "Yu-Gi-Oh-API";
 			productReference = 4C8FA6A82C00F5590001FE3F /* Yu-Gi-Oh-API.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +168,9 @@
 				Base,
 			);
 			mainGroup = 4C8FA69F2C00F5590001FE3F;
+			packageReferences = (
+				4C9947F22C35201400641AB4 /* XCRemoteSwiftPackageReference "Pow" */,
+			);
 			productRefGroup = 4C8FA6A92C00F5590001FE3F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -408,6 +416,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4C9947F22C35201400641AB4 /* XCRemoteSwiftPackageReference "Pow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/EmergeTools/Pow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4C9947F32C35201400641AB4 /* Pow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C9947F22C35201400641AB4 /* XCRemoteSwiftPackageReference "Pow" */;
+			productName = Pow;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4C8FA6A02C00F5590001FE3F /* Project object */;
 }
