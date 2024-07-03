@@ -1,7 +1,18 @@
 import Foundation
 
 struct YuGiOhAPIClient {
-    func fetch() async -> YDMCard? {
+    func fetch(numberOfCards: Int = 1) async -> [YDMCard]? {
+        guard numberOfCards > 0 else { return nil }
+        return await withTaskGroup(of: YDMCard?.self) { group in
+            for _ in 0..<numberOfCards {
+                group.addTask(operation: _fetch)
+            }
+            let cards = await group.compactMap { $0 }.reduce(into: [YDMCard]()) { $0.append($1) }
+            return cards.count == numberOfCards ? cards : nil
+        }
+    }
+
+    @Sendable private func _fetch() async -> YDMCard? {
         guard
             let url = URL(string: "https://db.ygoprodeck.com/api/v7/randomcard.php"),
             let (data, _) = try? await URLSession.shared.data(from: url),
