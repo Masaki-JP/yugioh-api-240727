@@ -82,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				4C9947C92C342A9200641AB4 /* App & View */,
+				4C9948152C35A65200641AB4 /* ViewModel */,
 				4C9947CA2C342A9600641AB4 /* Model & Util & Service */,
 				4C8FA6AF2C00F55B0001FE3F /* Assets.xcassets */,
 				4C8FA6B12C00F55B0001FE3F /* Preview Content */,
@@ -100,17 +101,8 @@
 		4C9947C92C342A9200641AB4 /* App & View */ = {
 			isa = PBXGroup;
 			children = (
-				4C8FA6AB2C00F5590001FE3F /* Yu_Gi_Oh_APIApp.swift */,
-				4C8FA6AD2C00F5590001FE3F /* ContentView.swift */,
-				4C9CC7F82C30456900F58C9E /* HomeView.swift */,
-				4C72C3012C31AE5100C585D2 /* HomeViewContent.swift */,
-				4C46F9672C33F3B600547832 /* HomeViewContentBody.swift */,
-				4C72C2FF2C31A20F00C585D2 /* ScrollableCardRow.swift */,
-				4C9947F02C351A8300641AB4 /* GetCardView.swift */,
-				4C9947F52C3528E200641AB4 /* SecretCard.swift */,
-				4C9CC7F62C30449800F58C9E /* CardListView.swift */,
-				4CE1BAD02C013FF0003BA615 /* CardDetailView.swift */,
-				4C9CC7F42C3043FE00F58C9E /* SettingView.swift */,
+				4C9948132C35A5B700641AB4 /* Core */,
+				4C9948142C35A5BC00641AB4 /* Component */,
 			);
 			path = "App & View";
 			sourceTree = "<group>";
@@ -125,6 +117,38 @@
 				4CE1BACC2C013F70003BA615 /* APIClient.swift */,
 			);
 			path = "Model & Util & Service";
+			sourceTree = "<group>";
+		};
+		4C9948132C35A5B700641AB4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4C8FA6AB2C00F5590001FE3F /* Yu_Gi_Oh_APIApp.swift */,
+				4C8FA6AD2C00F5590001FE3F /* ContentView.swift */,
+				4C9CC7F82C30456900F58C9E /* HomeView.swift */,
+				4C9CC7F62C30449800F58C9E /* CardListView.swift */,
+				4C9CC7F42C3043FE00F58C9E /* SettingView.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4C9948142C35A5BC00641AB4 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				4C72C3012C31AE5100C585D2 /* HomeViewContent.swift */,
+				4C46F9672C33F3B600547832 /* HomeViewContentBody.swift */,
+				4C72C2FF2C31A20F00C585D2 /* ScrollableCardRow.swift */,
+				4C9947F02C351A8300641AB4 /* GetCardView.swift */,
+				4C9947F52C3528E200641AB4 /* SecretCard.swift */,
+				4CE1BAD02C013FF0003BA615 /* CardDetailView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		4C9948152C35A65200641AB4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
