@@ -5,6 +5,7 @@ struct HomeView: View {
     @State private var cardsForGetCardView: CardPack?
     @State private var asynchronousTask: Task<Void, Never>?
     @Namespace private var namespace
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         HomeViewContent {
@@ -26,6 +27,9 @@ struct HomeView: View {
             onDismiss: { asynchronousTask = nil },
             content: { GetCardView(availableCards: $0.value) }
         )
+        .onDisappear { asynchronousTask?.cancel() }
+        .onChange(of: scenePhase) { asynchronousTask?.cancel() }
+        .onDisappear(perform: asynchronousTask?.cancel)
     }
 
     var getCardsButton: some View {
