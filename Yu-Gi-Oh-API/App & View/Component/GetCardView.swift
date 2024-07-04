@@ -33,3 +33,14 @@ struct GetCardView: View {
         .ignoresSafeArea()
     }
 }
+
+#Preview {
+    let uiImage = UIImage(named: "Dark_Magician")!
+    let imageData = uiImage.jpegData(compressionQuality: 1.0)!
+    let cards: [YDMCard] = [
+        .init(name: "Dark Magician", data: imageData),
+        .init(name: "Dark Magician", data: imageData),
+        .init(name: "Dark Magician", data: imageData),
+    ]
+    return GetCardView(availableCards: cards)
+}
