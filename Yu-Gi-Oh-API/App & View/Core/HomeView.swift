@@ -4,6 +4,7 @@ struct HomeView: View {
     @State private var isScrolling = false
     @State private var cardsForGetCardView: CardPack?
     @State private var asynchronousTask: Task<Void, Never>?
+    @State private var isFetching = false
     @Namespace private var namespace
     @Environment(\.scenePhase) private var scenePhase
 
@@ -27,9 +28,15 @@ struct HomeView: View {
             onDismiss: { asynchronousTask = nil },
             content: { GetCardView(availableCards: $0.value) }
         )
-        .onDisappear { asynchronousTask?.cancel() }
-        .onChange(of: scenePhase) { asynchronousTask?.cancel() }
-        .onDisappear(perform: asynchronousTask?.cancel)
+        .onDisappear {
+            asynchronousTask?.cancel()
+            isFetching = false
+        }
+        .onChange(of: scenePhase) {
+            asynchronousTask?.cancel()
+            isFetching = false
+        }
+        .preference(key: IsFetchingPreferenceKey.self, value: isFetching)
     }
 
     var getCardsButton: some View {
@@ -61,10 +68,13 @@ struct HomeView: View {
 
     // @Stateが付与された値の変更なので、メインスレッドで書き込みを行う必要はない。
     func didTapGetCardsButton() {
+        guard isFetching == false else { return }
+        isFetching = true
         asynchronousTask = .init {
             guard let cards = await YuGiOhAPIClient().fetch(numberOfCards: 3)
             else { return }
             cardsForGetCardView = .some(.init(value: cards))
+            isFetching = false
         }
     }
 }

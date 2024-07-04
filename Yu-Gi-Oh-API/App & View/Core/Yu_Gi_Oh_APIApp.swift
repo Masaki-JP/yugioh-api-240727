@@ -3,6 +3,8 @@ import SwiftData
 
 @main
 struct Yu_Gi_Oh_APIApp: App {
+    @State private var isFetching = false
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             YDMCard.self,
@@ -21,6 +23,11 @@ struct Yu_Gi_Oh_APIApp: App {
             ContentView()
                 .modelContainer(sharedModelContainer)
                 .preferredColorScheme(.dark)
+                .disabled(isFetching == true)
+                .onPreferenceChange(IsFetchingPreferenceKey.self) { value in
+                    isFetching = value
+                }
+                .animation(.easeIn, value: isFetching)
         }
     }
 }
