@@ -11,6 +11,7 @@
 		4C46F9642C33EF5300547832 /* IsScrollingPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46F9632C33EF5300547832 /* IsScrollingPreferenceKey.swift */; };
 		4C46F9662C33EF9300547832 /* ScrollObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46F9652C33EF9300547832 /* ScrollObserver.swift */; };
 		4C46F9682C33F3B600547832 /* HomeViewContentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46F9672C33F3B600547832 /* HomeViewContentBody.swift */; };
+		4C61C3002C36757800816CC1 /* IsFetchingPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C61C2FF2C36757800816CC1 /* IsFetchingPreferenceKey.swift */; };
 		4C72C3002C31A20F00C585D2 /* ScrollableCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C72C2FF2C31A20F00C585D2 /* ScrollableCardRow.swift */; };
 		4C72C3022C31AE5100C585D2 /* HomeViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C72C3012C31AE5100C585D2 /* HomeViewContent.swift */; };
 		4C8FA6AC2C00F5590001FE3F /* Yu_Gi_Oh_APIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8FA6AB2C00F5590001FE3F /* Yu_Gi_Oh_APIApp.swift */; };
@@ -33,6 +34,7 @@
 		4C46F9632C33EF5300547832 /* IsScrollingPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsScrollingPreferenceKey.swift; sourceTree = "<group>"; };
 		4C46F9652C33EF9300547832 /* ScrollObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollObserver.swift; sourceTree = "<group>"; };
 		4C46F9672C33F3B600547832 /* HomeViewContentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewContentBody.swift; sourceTree = "<group>"; };
+		4C61C2FF2C36757800816CC1 /* IsFetchingPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsFetchingPreferenceKey.swift; sourceTree = "<group>"; };
 		4C72C2FF2C31A20F00C585D2 /* ScrollableCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableCardRow.swift; sourceTree = "<group>"; };
 		4C72C3012C31AE5100C585D2 /* HomeViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewContent.swift; sourceTree = "<group>"; };
 		4C8FA6A82C00F5590001FE3F /* Yu-Gi-Oh-API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yu-Gi-Oh-API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				4C46F9632C33EF5300547832 /* IsScrollingPreferenceKey.swift */,
 				4C46F9652C33EF9300547832 /* ScrollObserver.swift */,
 				4CE1BACC2C013F70003BA615 /* YuGiOhAPIClient.swift */,
+				4C61C2FF2C36757800816CC1 /* IsFetchingPreferenceKey.swift */,
 			);
 			path = "Model & Util & Service";
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 				4C9CC7F92C30456900F58C9E /* HomeView.swift in Sources */,
 				4C72C3022C31AE5100C585D2 /* HomeViewContent.swift in Sources */,
 				4C9947F62C3528E200641AB4 /* SecretCard.swift in Sources */,
+				4C61C3002C36757800816CC1 /* IsFetchingPreferenceKey.swift in Sources */,
 				4CE1BACD2C013F70003BA615 /* YuGiOhAPIClient.swift in Sources */,
 				4CE1BACF2C013F87003BA615 /* YDMCard.swift in Sources */,
 			);
@@ -309,6 +313,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
 			};
 			name = Debug;
 		};
@@ -364,6 +369,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_STRICT_CONCURRENCY = minimal;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
