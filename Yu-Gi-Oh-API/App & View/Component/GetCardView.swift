@@ -6,31 +6,36 @@ struct GetCardView: View {
     let availableCards: [YDMCard]
 
     var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 0) {
-                ForEach(availableCards) { card in
-                    VStack {
-                        SecretCard(card)
-                            .frame(maxWidth: 400)
-                        if card !== availableCards.last! { // ⚠️ Force Unwrap
-                            Text("Swipe up to next card")
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                        } else {
-                            Button("Back to home", action: dismiss.callAsFunction)
-                                .font(.title3)
-                                .fontWeight(.semibold)
+        if availableCards.isEmpty == false {
+            ScrollView {
+                LazyVStack(spacing: 0) {
+                    ForEach(availableCards) { card in
+                        VStack {
+                            SecretCard(card)
+                                .frame(maxWidth: 400)
+                            if card !== availableCards.last! { // ⚠️ Force Unwrap
+                                Text("Swipe up to next card")
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                            } else {
+                                Button("Back to home", action: dismiss.callAsFunction)
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                            }
                         }
+                        .padding(.horizontal)
+                        .containerRelativeFrame(.vertical)
                     }
-                    .padding(.horizontal)
-                    .containerRelativeFrame(.vertical)
                 }
+                .scrollTargetLayout()
             }
-            .scrollTargetLayout()
+            .scrollTargetBehavior(.paging)
+            .scrollIndicators(.hidden)
+            .ignoresSafeArea()
+        } else {
+            Text("Error")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .scrollTargetBehavior(.paging)
-        .scrollIndicators(.hidden)
-        .ignoresSafeArea()
     }
 }
 
