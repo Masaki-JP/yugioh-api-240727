@@ -8,7 +8,7 @@ struct GetCardView: View {
     var body: some View {
         if availableCards.isEmpty == false {
             ScrollView {
-                LazyVStack(spacing: 0) {
+                VStack(spacing: 0) {
                     ForEach(availableCards) { card in
                         VStack {
                             SecretCard(card)

@@ -1,11 +1,13 @@
 import SwiftUI
 import AVFoundation
+import SwiftData
 
 struct SecretCard: View {
     @State private var isCovering = true
     private let card: YDMCard
     private let invalidateSoundEffect: Bool
     private let audioPlayer: AVAudioPlayer?
+    @Environment(\.modelContext) private var modelContext
 
     init(_ card: YDMCard, invalidateSoundEffect: Bool = false) {
         self.card = card
@@ -52,6 +54,7 @@ struct SecretCard: View {
 
     func openCard() {
         withAnimation {
+            modelContext.insert(card)
             isCovering = false
             if invalidateSoundEffect == false {
                 audioPlayer?.play()
