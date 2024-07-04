@@ -3,20 +3,16 @@ import Pow
 
 struct GetCardView: View {
     @Environment(\.dismiss) private var dismiss
-    private let availableCard: Int
-
-    init(availableCard: Int = 3) {
-        self.availableCard = availableCard
-    }
+    let availableCards: [YDMCard]
 
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 0) {
-                ForEach(0..<availableCard, id: \.self) { i in
+                ForEach(availableCards) { card in
                     VStack {
-                        SecretCard()
+                        SecretCard(card)
                             .frame(maxWidth: 400)
-                        if i != availableCard - 1 {
+                        if card !== availableCards.last! { // ⚠️ Force Unwrap
                             Text("Swipe up to next card")
                                 .font(.title3)
                                 .fontWeight(.semibold)
@@ -36,9 +32,4 @@ struct GetCardView: View {
         .scrollIndicators(.hidden)
         .ignoresSafeArea()
     }
-}
-
-#Preview {
-    GetCardView()
-        .preferredColorScheme(.dark)
 }

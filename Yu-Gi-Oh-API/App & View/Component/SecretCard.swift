@@ -3,11 +3,14 @@ import AVFoundation
 
 struct SecretCard: View {
     @State private var isCovering = true
-    let invalidateSoundEffect: Bool
-    let audioPlayer: AVAudioPlayer?
+    private let card: YDMCard
+    private let invalidateSoundEffect: Bool
+    private let audioPlayer: AVAudioPlayer?
 
-    init(invalidateSoundEffect: Bool = false) {
+    init(_ card: YDMCard, invalidateSoundEffect: Bool = false) {
+        self.card = card
         self.invalidateSoundEffect = invalidateSoundEffect
+
         if let dataAsset = NSDataAsset(name: "CardFlip"),
            let audioPlayer = try? AVAudioPlayer(data: dataAsset.data) {
             self.audioPlayer = audioPlayer
@@ -17,17 +20,22 @@ struct SecretCard: View {
     }
 
     var body: some View {
-        Image(.darkMagician)
-            .resizable()
-            .scaledToFit()
-            .overlay {
-                if isCovering == true {
-                    cardCover
-                        .transition(.movingParts.glare)
-                        .onTapGesture(perform: openCard)
+        if let uiImage = UIImage(data: card.imageData) {
+            Image(uiImage: uiImage)
+                .resizable()
+                .scaledToFit()
+                .overlay {
+                    if isCovering == true {
+                        cardCover
+                            .transition(.movingParts.glare)
+                            .onTapGesture(perform: openCard)
+                    }
                 }
-            }
-            .sensoryFeedback(.impact, trigger: isCovering)
+                .sensoryFeedback(.impact, trigger: isCovering)
+        } else {
+            Text("Error")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
 
     var cardCover: some View {
@@ -50,9 +58,4 @@ struct SecretCard: View {
             }
         }
     }
-}
-
-#Preview {
-    SecretCard()
-        .preferredColorScheme(.dark)
 }

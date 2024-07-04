@@ -2,7 +2,8 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var isScrolling = false
-    @State private var isShowingGetCardView = false
+    @State private var cardsForGetCardView: CardPack?
+    @State private var asynchronousTask: Task<Void, Never>?
     @Namespace private var namespace
 
     var body: some View {
@@ -20,15 +21,15 @@ struct HomeView: View {
                 }
                 .animation(.easeInOut(duration: 0.1), value: isScrolling)
         }
-        .fullScreenCover(isPresented: $isShowingGetCardView) {
-            GetCardView()
-        }
+        .fullScreenCover(
+            item: $cardsForGetCardView,
+            onDismiss: { asynchronousTask = nil },
+            content: { GetCardView(availableCards: $0.value) }
+        )
     }
 
     var getCardsButton: some View {
-        Button {
-            isShowingGetCardView = true
-        } label: {
+        Button(action: didTapGetCardsButton) {
             if isScrolling == false {
                 Text("Let's get new card!!")
                     .font(.title2)
@@ -53,6 +54,20 @@ struct HomeView: View {
             }
         }
     }
+
+    // @Stateが付与された値の変更なので、メインスレッドで書き込みを行う必要はない。
+    func didTapGetCardsButton() {
+        asynchronousTask = .init {
+            guard let cards = await YuGiOhAPIClient().fetch(numberOfCards: 3)
+            else { return }
+            cardsForGetCardView = .some(.init(value: cards))
+        }
+    }
+}
+
+private struct CardPack: Identifiable {
+    let id = UUID()
+    let value: [YDMCard]
 }
 
 #Preview {
