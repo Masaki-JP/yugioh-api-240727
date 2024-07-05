@@ -13,8 +13,6 @@ struct CardListView: View {
                         if let uiImage = UIImage(data: card.imageData) {
                             NavigationLink {
                                 CardDetailView(card)
-                                    .navigationTitle(card.name)
-                                    .navigationBarTitleDisplayMode(.inline)
                             } label: {
                                 Image(uiImage: uiImage)
                                     .resizable().scaledToFit()
