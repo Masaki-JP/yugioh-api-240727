@@ -53,6 +53,7 @@ struct SecretCard: View {
     }
 
     func openCard() {
+        guard isCovering == true else { return }
         withAnimation {
             modelContext.insert(card)
             isCovering = false
