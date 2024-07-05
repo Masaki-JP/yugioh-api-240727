@@ -11,8 +11,15 @@ struct CardListView: View {
                 LazyVGrid(columns: columns) {
                     ForEach(cards) { card in
                         if let uiImage = UIImage(data: card.imageData) {
-                            Image(uiImage: uiImage)
-                                .resizable().scaledToFit()
+                            NavigationLink {
+                                CardDetailView(card)
+                                    .navigationTitle(card.name)
+                                    .navigationBarTitleDisplayMode(.inline)
+                            } label: {
+                                Image(uiImage: uiImage)
+                                    .resizable().scaledToFit()
+                            }
+
                         } else {
                             Text("Error")
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
