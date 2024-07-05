@@ -22,6 +22,7 @@ struct CardListView: View {
                 .padding(.horizontal)
             }
             .navigationTitle("All Cards")
+            .toolbarTitleDisplayMode(.inlineLarge)
             .overlay {
                 if cards .isEmpty {
                     ContentUnavailableView("No Cards", systemImage: "tray.fill", description: Text("You can get new cards from Home."))

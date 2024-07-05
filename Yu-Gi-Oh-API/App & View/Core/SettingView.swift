@@ -5,6 +5,7 @@ struct SettingView: View {
         NavigationStack {
             Text("Coming soon...")
                 .navigationTitle("Settings")
+                .toolbarTitleDisplayMode(.inlineLarge)
         }
     }
 }
