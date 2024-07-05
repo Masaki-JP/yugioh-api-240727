@@ -17,7 +17,6 @@ struct CardListView: View {
                                 Image(uiImage: uiImage)
                                     .resizable().scaledToFit()
                             }
-
                         } else {
                             Text("Error")
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -37,7 +36,25 @@ struct CardListView: View {
     }
 }
 
-#Preview {
+#Preview("Normal Case") {
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: YDMCard.self, configurations: config)
+
+    let uiImage = UIImage(named: "Dark_Magician")!
+    let imageData = uiImage.jpegData(compressionQuality: 1.0)!
+
+    for _ in 0..<10 {
+        let card = YDMCard(name: "Dark Magician", data: imageData)
+        container.mainContext.insert(card)
+    }
+
+    return CardListView()
+        .preferredColorScheme(.dark)
+        .modelContainer(container)
+}
+
+#Preview("Empty Case") {
     CardListView()
         .preferredColorScheme(.dark)
+        .modelContainer(for: YDMCard.self, inMemory: true)
 }
