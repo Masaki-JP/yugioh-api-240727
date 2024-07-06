@@ -6,13 +6,13 @@ struct HomeViewContentBody: View {
     var body: some View {
         ScrollView {
             LazyVStack {
-                ScrollableCardRow("New Cards", lines: 2)
-                ScrollableCardRow("Favorite Cards", lines: 2)
-                ScrollableCardRow("Random Cards", lines: 2)
-                ScrollableCardRow("All Cards", lines: 2)
-                ScrollableCardRow("XXX Cards", lines: 3)
-                ScrollableCardRow("XXX Cards", lines: 3)
-                ScrollableCardRow("XXX Cards", lines: 3)
+                ScrollableCardRow("New Cards", cards: getSampleCards(10))
+                ScrollableCardRow("Favorite Cards", cards: getSampleCards(10))
+                ScrollableCardRow("Random Cards", cards: getSampleCards(20))
+                ScrollableCardRow("All Cards", cards: getSampleCards(20))
+                ScrollableCardRow("XXX Cards", cards: getSampleCards(30))
+                ScrollableCardRow("XXX Cards", cards: getSampleCards(40))
+                ScrollableCardRow("XXX Cards", cards: getSampleCards(50))
             }
             .background {
                 GeometryReader { geometry in
@@ -37,4 +37,13 @@ struct HomeViewContentBody: View {
 
 #Preview {
     HomeViewContentBody()
+}
+
+private func getSampleCards(_ numberOfCard: Int) -> [YDMCard] {
+    let uiImage = UIImage(named: "Dark_Magician")!
+    let imageData = uiImage.jpegData(compressionQuality: 1.0)!
+
+    return (0..<numberOfCard).map { _ in
+            .init(name: "Dark Magician", data: imageData)
+    }
 }
