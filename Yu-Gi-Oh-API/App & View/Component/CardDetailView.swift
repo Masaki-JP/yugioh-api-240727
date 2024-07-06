@@ -34,7 +34,7 @@ struct CardDetailView: View {
 }
 
 #Preview {
-    let uiImage = UIImage(named: "Dark_Magician")!
+    let uiImage = UIImage(named: "Dark_Magician_Normal")!
     let imageData = uiImage.jpegData(compressionQuality: 1.0)!
     let card = YDMCard(name: "Dark Magician", data: imageData)
 

@@ -40,7 +40,7 @@ struct GetCardView: View {
 }
 
 #Preview {
-    let uiImage = UIImage(named: "Dark_Magician")!
+    let uiImage = UIImage(named: "Dark_Magician_Normal")!
     let imageData = uiImage.jpegData(compressionQuality: 1.0)!
     let cards: [YDMCard] = [
         .init(name: "Dark Magician", data: imageData),

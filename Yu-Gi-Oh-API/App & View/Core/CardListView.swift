@@ -98,7 +98,7 @@ struct CardListView: View {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: YDMCard.self, configurations: config)
 
-    let uiImage = UIImage(named: "Dark_Magician")!
+    let uiImage = UIImage(named: "Dark_Magician_Normal")!
     let imageData = uiImage.jpegData(compressionQuality: 1.0)!
 
     for _ in 0..<10 {
