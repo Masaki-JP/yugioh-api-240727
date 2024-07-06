@@ -88,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				4C9947C92C342A9200641AB4 /* App & View */,
-				4C9948152C35A65200641AB4 /* ViewModel */,
 				4C9947CA2C342A9600641AB4 /* Model & Util & Service & Extention */,
 				4C8FA6AF2C00F55B0001FE3F /* Assets.xcassets */,
 				4C8FA6B12C00F55B0001FE3F /* Preview Content */,
@@ -151,13 +150,6 @@
 				4CE1BAD02C013FF0003BA615 /* CardDetailView.swift */,
 			);
 			path = Component;
-			sourceTree = "<group>";
-		};
-		4C9948152C35A65200641AB4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
