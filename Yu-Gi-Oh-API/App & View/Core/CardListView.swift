@@ -13,7 +13,7 @@ struct CardListView: View {
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach(cards) { card in
-                        if let uiImage = UIImage(data: card.imageData) {
+                        if let uiImage = UIImage(data: card.imageData.small) {
                             NavigationLink {
                                 CardDetailView(card)
                             } label: {
@@ -97,14 +97,7 @@ struct CardListView: View {
 #Preview("Normal Case") {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: YDMCard.self, configurations: config)
-
-    let uiImage = UIImage(named: "Dark_Magician_Normal")!
-    let imageData = uiImage.jpegData(compressionQuality: 1.0)!
-
-    for _ in 0..<10 {
-        let card = YDMCard(name: "Dark Magician", data: imageData)
-        container.mainContext.insert(card)
-    }
+    getSampleCards(10).forEach { container.mainContext.insert($0) }
 
     return CardListView()
         .preferredColorScheme(.dark)

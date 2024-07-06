@@ -40,7 +40,7 @@ struct ScrollableCardRow: View {
                                 ForEach(chunk, id: \.self) { card in
                                     let maxHeight: CGFloat? = chunk.last == .some(card) ? .infinity : nil
 
-                                    Image(uiImage: .init(data: chunk[0].imageData)!)
+                                    Image(uiImage: .init(data: chunk[0].imageData.small)!)
                                         .resizable()
                                         .scaledToFit()
                                         .frame(height: 100)

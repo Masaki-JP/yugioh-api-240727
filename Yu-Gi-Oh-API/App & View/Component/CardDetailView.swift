@@ -9,7 +9,7 @@ struct CardDetailView: View {
 
     var body: some View {
         Group {
-            if let uiImage = UIImage(data: card.imageData) {
+            if let uiImage = UIImage(data: card.imageData.normal) {
                 Image(uiImage: uiImage)
                     .resizable()
                     .scaledToFit()
@@ -34,11 +34,7 @@ struct CardDetailView: View {
 }
 
 #Preview {
-    let uiImage = UIImage(named: "Dark_Magician_Normal")!
-    let imageData = uiImage.jpegData(compressionQuality: 1.0)!
-    let card = YDMCard(name: "Dark Magician", data: imageData)
-
-    return NavigationStack {
-        CardDetailView(card)
+    NavigationStack {
+        CardDetailView(getSampleCard())
     }
 }

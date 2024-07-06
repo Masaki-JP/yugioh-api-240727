@@ -22,7 +22,7 @@ struct SecretCard: View {
     }
 
     var body: some View {
-        if let uiImage = UIImage(data: card.imageData) {
+        if let uiImage = UIImage(data: card.imageData.normal) {
             Image(uiImage: uiImage)
                 .resizable()
                 .scaledToFit()
@@ -65,8 +65,5 @@ struct SecretCard: View {
 }
 
 #Preview {
-    let uiImage = UIImage(named: "Dark_Magician_Normal")!
-    let imageData = uiImage.jpegData(compressionQuality: 1.0)!
-    let card = YDMCard(name: "Dark Magician", data: imageData)
-    return SecretCard(card)
+    SecretCard(getSampleCard())
 }
