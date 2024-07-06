@@ -85,7 +85,7 @@
 			children = (
 				4C9947C92C342A9200641AB4 /* App & View */,
 				4C9948152C35A65200641AB4 /* ViewModel */,
-				4C9947CA2C342A9600641AB4 /* Model & Util & Service */,
+				4C9947CA2C342A9600641AB4 /* Model & Util & Service & Extention */,
 				4C8FA6AF2C00F55B0001FE3F /* Assets.xcassets */,
 				4C8FA6B12C00F55B0001FE3F /* Preview Content */,
 			);
@@ -109,7 +109,7 @@
 			path = "App & View";
 			sourceTree = "<group>";
 		};
-		4C9947CA2C342A9600641AB4 /* Model & Util & Service */ = {
+		4C9947CA2C342A9600641AB4 /* Model & Util & Service & Extention */ = {
 			isa = PBXGroup;
 			children = (
 				4CE1BACE2C013F87003BA615 /* YDMCard.swift */,
@@ -119,7 +119,7 @@
 				4CE1BACC2C013F70003BA615 /* YuGiOhAPIClient.swift */,
 				4C61C2FF2C36757800816CC1 /* IsFetchingPreferenceKey.swift */,
 			);
-			path = "Model & Util & Service";
+			path = "Model & Util & Service & Extention";
 			sourceTree = "<group>";
 		};
 		4C9948132C35A5B700641AB4 /* Core */ = {
