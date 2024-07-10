@@ -11,7 +11,7 @@ struct HomeViewContentBody: View {
                 ScrollableCardRow("Favorite Cards", cards: .init(sampleCards[0..<10]))
                 ScrollableCardRow("Random Cards", cards: .init(sampleCards[0..<20]))
                 ScrollableCardRow("All Cards", cards: .init(sampleCards[0..<20]))
-                ScrollableCardRow("XXX Cards", cards: .init(sampleCards[0..<30]))
+                ScrollableCardRow("XXX Cards", cards: .init(sampleCards[0..<20]))
                 ScrollableCardRow("XXX Cards", cards: .init(sampleCards[0..<40]))
                 ScrollableCardRow("XXX Cards", cards: .init(sampleCards[0..<50]))
             }
