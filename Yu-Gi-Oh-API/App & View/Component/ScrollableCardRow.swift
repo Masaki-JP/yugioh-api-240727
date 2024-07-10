@@ -38,13 +38,16 @@ struct ScrollableCardRow: View {
                         ForEach(targetCards.chuncked(numberOfColumns), id: \.self) { chunk in
                             VStack(spacing: 10) {
                                 ForEach(chunk, id: \.self) { card in
-                                    let maxHeight: CGFloat? = chunk.last == .some(card) ? .infinity : nil
-
-                                    Image(uiImage: .init(data: chunk[0].imageData.small)!)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(height: 100)
-                                        .frame(maxHeight: maxHeight, alignment: .top)
+                                    NavigationLink(value: card) {
+                                        Image(uiImage: .init(data: chunk[0].imageData.small)!)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(height: 100)
+                                            .frame(
+                                                maxHeight: chunk.last == .some(card) ? .infinity : nil,
+                                                alignment: .top
+                                            )
+                                    }
                                 }
                             }
                         }

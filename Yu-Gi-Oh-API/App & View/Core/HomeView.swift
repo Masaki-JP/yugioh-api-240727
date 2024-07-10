@@ -9,19 +9,24 @@ struct HomeView: View {
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
-        HomeViewContent {
-            HomeViewContentBody()
-                .safeAreaInset(edge: .bottom) {
-                    HStack(spacing: 0) {
-                        if isScrolling { Spacer() }
-                        getCardsButton.padding(.trailing, isScrolling ? 15 : 0)
+        NavigationStack {
+            HomeViewContent {
+                HomeViewContentBody()
+                    .safeAreaInset(edge: .bottom) {
+                        HStack(spacing: 0) {
+                            if isScrolling { Spacer() }
+                            getCardsButton.padding(.trailing, isScrolling ? 15 : 0)
+                        }
+                        .padding(.bottom, 10)
                     }
-                    .padding(.bottom, 10)
-                }
-                .onPreferenceChange(IsScrollingPreferenceKey.self) { value in
-                    isScrolling = value
-                }
-                .animation(.easeInOut(duration: 0.1), value: isScrolling)
+                    .onPreferenceChange(IsScrollingPreferenceKey.self) { value in
+                        isScrolling = value
+                    }
+                    .animation(.easeInOut(duration: 0.1), value: isScrolling)
+            }
+            .navigationDestination(for: YDMCard.self) {
+                CardDetailView($0)
+            }
         }
         .fullScreenCover(
             item: $cardsForGetCardView,
