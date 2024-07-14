@@ -18,17 +18,13 @@ struct HomeViewContentBody: View {
             .background {
                 GeometryReader { geometry in
                     Color.clear
-                        .preference(
-                            key: VerticalOffsetPreferenceKey.self,
-                            value: geometry.frame(in: .global).minY
-                        )
+                        .onChange(of: geometry.frame(in: .global)) { _, _ in
+                            scrollObserver.run()
+                        }
                 }
             }
         }
         .scrollIndicators(.hidden)
-        .onPreferenceChange(VerticalOffsetPreferenceKey.self) { _ in
-            scrollObserver.run()
-        }
         .preference(
             key: IsScrollingPreferenceKey.self,
             value: scrollObserver.isScrolling
