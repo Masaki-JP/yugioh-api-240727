@@ -6,11 +6,19 @@ final class ScrollObserver: ObservableObject {
     private var cancellables: Set<AnyCancellable> = .init()
     private let subject: PassthroughSubject<Void, Never> = .init()
     private var debounceCancellable: AnyCancellable? = nil
+    private let createdTime: Date
+    private var isReady = false
 
     init() {
+        self.createdTime = .now
+
         subject
-            .dropFirst()
             .sink { [weak self] _ in
+                if self?.isReady == false  {
+                    guard let createdTime = self?.createdTime,
+                          Date.now.timeIntervalSince(createdTime) > 0.3 else { return }
+                    self?.isReady = true
+                }
                 self?.isScrolling = true
                 self?.debounceCancellable?.cancel()
                 self?.debounceCancellable = Just(())
