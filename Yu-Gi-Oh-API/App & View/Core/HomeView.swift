@@ -19,15 +19,15 @@ struct HomeView: View {
                         }
                         .padding(.bottom, 10)
                     }
-                    .onPreferenceChange(IsScrollingPreferenceKey.self) { value in
-                        isScrolling = value
-                    }
-                    .animation(.easeInOut(duration: 0.1), value: isScrolling)
             }
             .navigationDestination(for: YDMCard.self) {
                 CardDetailView($0)
             }
         }
+        .onPreferenceChange(IsScrollingPreferenceKey.self) { value in
+            isScrolling = value
+        }
+        .animation(.easeInOut(duration: 0.1), value: isScrolling)
         .fullScreenCover(
             item: $cardsForGetCardView,
             onDismiss: { asynchronousTask = nil },
