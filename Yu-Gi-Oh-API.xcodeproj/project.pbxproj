@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C13261E2C39064700A279DB /* ArrayExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13261D2C39064700A279DB /* ArrayExtentions.swift */; };
+		4C46F9622C33EF3400547832 /* VerticalOffsetPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46F9612C33EF3400547832 /* VerticalOffsetPreferenceKey.swift */; };
 		4C46F9642C33EF5300547832 /* IsScrollingPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46F9632C33EF5300547832 /* IsScrollingPreferenceKey.swift */; };
 		4C46F9662C33EF9300547832 /* ScrollObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46F9652C33EF9300547832 /* ScrollObserver.swift */; };
 		4C46F9682C33F3B600547832 /* HomeViewContentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46F9672C33F3B600547832 /* HomeViewContentBody.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		4C13261D2C39064700A279DB /* ArrayExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtentions.swift; sourceTree = "<group>"; };
+		4C46F9612C33EF3400547832 /* VerticalOffsetPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalOffsetPreferenceKey.swift; sourceTree = "<group>"; };
 		4C46F9632C33EF5300547832 /* IsScrollingPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsScrollingPreferenceKey.swift; sourceTree = "<group>"; };
 		4C46F9652C33EF9300547832 /* ScrollObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollObserver.swift; sourceTree = "<group>"; };
 		4C46F9672C33F3B600547832 /* HomeViewContentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewContentBody.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				4CE1BACE2C013F87003BA615 /* YDMCard.swift */,
+				4C46F9612C33EF3400547832 /* VerticalOffsetPreferenceKey.swift */,
 				4C46F9632C33EF5300547832 /* IsScrollingPreferenceKey.swift */,
 				4C46F9652C33EF9300547832 /* ScrollObserver.swift */,
 				4CE1BACC2C013F70003BA615 /* YuGiOhAPIClient.swift */,
@@ -226,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C8FA6AE2C00F5590001FE3F /* ContentView.swift in Sources */,
+				4C46F9622C33EF3400547832 /* VerticalOffsetPreferenceKey.swift in Sources */,
 				4C46F9662C33EF9300547832 /* ScrollObserver.swift in Sources */,
 				4C46F9682C33F3B600547832 /* HomeViewContentBody.swift in Sources */,
 				4C8FA6AC2C00F5590001FE3F /* Yu_Gi_Oh_APIApp.swift in Sources */,
