@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 struct YuGiOhAPIClient {
     func fetch(numberOfCards: Int = 1) async -> [YDMCard]? {
@@ -22,7 +22,9 @@ struct YuGiOhAPIClient {
             let (normalSizeImageData, _) = try? await URLSession.shared.data(from: normalSizeImageURL),
             let smallSizeImageURLString = cardDTO.card_images.first?.image_url_small,
             let smallSizeImageURL = URL(string: smallSizeImageURLString),
-            let (smallSizeImageData, _) = try? await URLSession.shared.data(from: smallSizeImageURL)
+            let (smallSizeImageData, _) = try? await URLSession.shared.data(from: smallSizeImageURL),
+            let uiImage = UIImage(data: normalSizeImageData),
+            let smallSizeImageData = uiImage.jpegData(compressionQuality: 0.1)
         else { return nil }
 
         return .init(
