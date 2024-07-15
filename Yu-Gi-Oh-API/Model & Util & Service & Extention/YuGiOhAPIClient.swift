@@ -23,8 +23,8 @@ struct YuGiOhAPIClient {
             let smallSizeImageURLString = cardDTO.card_images.first?.image_url_small,
             let smallSizeImageURL = URL(string: smallSizeImageURLString),
             let (smallSizeImageData, _) = try? await URLSession.shared.data(from: smallSizeImageURL),
-            let uiImage = UIImage(data: normalSizeImageData),
-            let smallSizeImageData = uiImage.jpegData(compressionQuality: 0.1)
+            let uiImage = UIImage(data: smallSizeImageData),
+            let smallSizeImageData = uiImage.jpegData(compressionQuality: 0.0)
         else { return nil }
 
         return .init(
