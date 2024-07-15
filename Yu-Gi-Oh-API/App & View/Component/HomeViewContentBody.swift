@@ -1,19 +1,17 @@
 import SwiftUI
+import SwiftData
 
 struct HomeViewContentBody: View {
     @StateObject private var scrollObserver = ScrollObserver()
-    @State private var sampleCards = getSampleCards(50)
+    let cards: [YDMCard]
 
     var body: some View {
         ScrollView {
             LazyVStack {
-                ScrollableCardRow("New Cards", cards: .init(sampleCards[0..<10]))
-                ScrollableCardRow("Favorite Cards", cards: .init(sampleCards[0..<10]))
-                ScrollableCardRow("Random Cards", cards: .init(sampleCards[0..<20]))
-                ScrollableCardRow("All Cards", cards: .init(sampleCards[0..<20]))
-                ScrollableCardRow("XXX Cards", cards: .init(sampleCards[0..<20]))
-                ScrollableCardRow("XXX Cards", cards: .init(sampleCards[0..<40]))
-                ScrollableCardRow("XXX Cards", cards: .init(sampleCards[0..<50]))
+                ScrollableCardRow("New Cards", cards: cards)
+                ScrollableCardRow("Favorite Cards", cards: cards)
+                ScrollableCardRow("Random Cards", cards: cards)
+                ScrollableCardRow("All Cards", cards: cards)
             }
             .background {
                 GeometryReader { geometry in
@@ -37,5 +35,5 @@ struct HomeViewContentBody: View {
 }
 
 #Preview {
-    HomeViewContentBody()
+    HomeViewContentBody(cards: getSampleCards(50))
 }

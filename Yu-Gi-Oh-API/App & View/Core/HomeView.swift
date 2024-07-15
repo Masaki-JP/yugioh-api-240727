@@ -1,6 +1,8 @@
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
+    @Query private var cards: [YDMCard]
     @State private var isScrolling = false
     @State private var cardsForGetCardView: CardPack?
     @State private var asynchronousTask: Task<Void, Never>?
@@ -11,7 +13,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             HomeViewContent {
-                HomeViewContentBody()
+                HomeViewContentBody(cards: cards)
                     .safeAreaInset(edge: .bottom) {
                         HStack(spacing: 0) {
                             if isScrolling { Spacer() }
