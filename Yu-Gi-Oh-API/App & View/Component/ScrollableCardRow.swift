@@ -9,7 +9,9 @@ struct ScrollableCardRow: View {
     private let targetCards: [YDMCard]
     private let lazyVStackHeight: CGFloat
 
-    init(_ title: String, cards: [YDMCard]) {
+    init?(_ title: String, cards: [YDMCard]) {
+        guard cards.isEmpty == false else { return nil }
+
         self.title = title
         self.cards = cards
 
@@ -23,8 +25,7 @@ struct ScrollableCardRow: View {
     }
 
     var body: some View {
-        if cards.isEmpty == false {
-            VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: 0) {
                 HStack(spacing: 0) {
                     Text(title)
                         .font(.title2)
@@ -57,9 +58,6 @@ struct ScrollableCardRow: View {
                 }
                 .padding(.top, 5)
             }
-        } else {
-            EmptyView()
-        }
     }
 }
 
