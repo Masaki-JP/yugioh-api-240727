@@ -8,9 +8,16 @@ struct HomeViewContentBody: View {
     var body: some View {
         ScrollView {
             LazyVStack {
-                ScrollableCardRow("New Cards", cards: cards)
-                ScrollableCardRow("Favorite Cards", cards: cards)
-                ScrollableCardRow("Random Cards", cards: cards)
+                ScrollableCardRow(
+                    "Favorite Cards",
+                    cards: cards,
+                    filter: \.isFavorite
+                )
+                ScrollableCardRow(
+                    "New Cards",
+                    cards: cards,
+                    sort: { $0.acquisitionDate > $1.acquisitionDate }
+                )
                 ScrollableCardRow("All Cards", cards: cards)
             }
             .background {
