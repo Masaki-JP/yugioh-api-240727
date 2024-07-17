@@ -1,7 +1,7 @@
 import UIKit
 
 struct YuGiOhAPIClient {
-    func fetch(numberOfCards: Int = 1) async -> [YDMCard]? {
+    func fetchCards(numberOfCards: Int = 1) async -> [YDMCard]? {
         guard numberOfCards > 0 else { return nil }
         return await withTaskGroup(of: YDMCard?.self) { group in
             for _ in 0..<numberOfCards {
