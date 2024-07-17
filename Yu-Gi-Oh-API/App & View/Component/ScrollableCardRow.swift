@@ -42,38 +42,38 @@ struct ScrollableCardRow: View {
 
         if cards.isEmpty == false {
             VStack(alignment: .leading, spacing: 0) {
-                    HStack(spacing: 0) {
-                        Text(title)
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                        Spacer()
-                        Button("more") {}
-                    }
-                    .padding(.horizontal, 5) // ※ 1
-                    ScrollView(.horizontal) {
-                        LazyHStack {
-                            ForEach(targetCards.chuncked(numberOfColumns), id: \.self) { chunk in
-                                VStack(spacing: 10) {
-                                    ForEach(chunk.reversed(), id: \.self) { card in
-                                        NavigationLink(value: card) {
-                                            Image(uiImage: .init(data: card.imageData.small)!)
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(height: 100)
-                                                .frame(
-                                                    maxHeight: chunk.last == .some(card) ? .infinity : nil,
-                                                    alignment: .top
-                                                )
-                                        }
+                HStack(spacing: 0) {
+                    Text(title)
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                    Spacer()
+                    Button("more") {}
+                }
+                .padding(.horizontal, 5) // ※ 1
+                ScrollView(.horizontal) {
+                    LazyHStack {
+                        ForEach(targetCards.chuncked(numberOfColumns), id: \.self) { chunk in
+                            VStack(spacing: 10) {
+                                ForEach(chunk.reversed(), id: \.self) { card in
+                                    NavigationLink(value: card) {
+                                        Image(uiImage: .init(data: card.imageData.small)!)
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(height: 100)
+                                            .frame(
+                                                maxHeight: chunk.last == .some(card) ? .infinity : nil,
+                                                alignment: .top
+                                            )
                                     }
                                 }
                             }
                         }
-                        .frame(height: lazyVStackHeight) // Disable ExpandingHeight
-                        .padding(.horizontal, 5) // ※1
                     }
-                    .padding(.top, 5)
+                    .frame(height: lazyVStackHeight) // Disable ExpandingHeight
+                    .padding(.horizontal, 5) // ※1
                 }
+                .padding(.top, 5)
+            }
         } else {
             EmptyView()
         }
