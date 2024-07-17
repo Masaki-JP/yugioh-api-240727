@@ -26,8 +26,14 @@ struct ScrollableCardRow: View {
             return filteredCards
         }()
 
-        let numberOfColumns = switch cards.count {
-        case 1...20: 1; case 21...40: 2; case 41...: 3; default: 0;
+        let numberOfColumns = if UIDevice.current.userInterfaceIdiom == .phone {
+            switch cards.count {
+            case 1...20: 1; case 21...: 2; default: 0;
+            }
+        } else {
+            switch cards.count {
+            case 1...20: 1; case 21...40: 2; case 41...: 3; default: 0;
+            }
         }
 
         let targetRange = 0..<Swift.min(cards.count, numberOfColumns * 20)
