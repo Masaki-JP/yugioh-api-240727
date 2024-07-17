@@ -7,7 +7,7 @@ struct HomeViewContentBody: View {
 
     var body: some View {
         ScrollView {
-            LazyVStack {
+            LazyVStack(spacing: 15) {
                 ScrollableCardRow(
                     "Favorite Cards",
                     cards: cards,
@@ -19,6 +19,7 @@ struct HomeViewContentBody: View {
                     sort: { $0.acquisitionDate > $1.acquisitionDate }
                 )
                 ScrollableCardRow("All Cards", cards: cards)
+                    .padding(.bottom, 15)
             }
             .background {
                 GeometryReader { geometry in
