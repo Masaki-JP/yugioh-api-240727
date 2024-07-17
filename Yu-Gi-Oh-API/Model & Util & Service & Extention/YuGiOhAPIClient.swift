@@ -5,6 +5,7 @@ struct YuGiOhAPIClient {
         guard numberOfCards > 0 else { return nil }
         return await withTaskGroup(of: YDMCard?.self) { group in
             for _ in 0..<numberOfCards {
+                try? await Task.sleep(for: .seconds(0.01))
                 group.addTask(operation: _fetch)
             }
             let cards = await group.compactMap { $0 }.reduce(into: [YDMCard]()) { $0.append($1) }
