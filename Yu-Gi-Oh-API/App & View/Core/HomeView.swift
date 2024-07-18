@@ -13,17 +13,17 @@ struct HomeView: View {
         NavigationStack {
             HomeViewContent {
                 HomeViewContentBody(cards: cards)
-                    .safeAreaInset(edge: .bottom) {
-                        HStack(spacing: 0) {
-                            if isScrolling { Spacer() }
-                            getCardsButton.padding(.trailing, isScrolling ? 15 : 0)
-                        }
-                        .padding(.bottom, 10)
-                    }
             }
             .navigationDestination(for: YDMCard.self) {
                 CardDetailView($0)
             }
+        }
+        .safeAreaInset(edge: .bottom) {
+            HStack(spacing: 0) {
+                if isScrolling { Spacer() }
+                getCardsButton.padding(.trailing, isScrolling ? 15 : 0)
+            }
+            .padding(.bottom, 10)
         }
         .onPreferenceChange(IsScrollingPreferenceKey.self) { value in
             isScrolling = value
