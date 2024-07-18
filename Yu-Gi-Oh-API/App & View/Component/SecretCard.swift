@@ -66,4 +66,5 @@ struct SecretCard: View {
 
 #Preview {
     SecretCard(YDMCard.sample())
+        .modelContainer(for: YDMCard.self, inMemory: true)
 }
