@@ -24,9 +24,9 @@ struct HomeView: View {
             .navigationDestination(for: YDMCard.self) {
                 CardDetailView($0)
             }
-            .navigationDestination(for: [YDMCard].self) {
-                cardList($0)
-                    .navigationTitle("Title")
+            .navigationDestination(for: NavigationDestinationData.self) {
+                cardList($0.cards)
+                    .navigationTitle($0.title)
             }
         }
         .onPreferenceChange(IsScrollingPreferenceKey.self) { value in
@@ -118,6 +118,18 @@ struct HomeView: View {
 private struct CardPack: Identifiable {
     let id = UUID()
     let value: [YDMCard]
+}
+
+extension HomeView {
+    struct NavigationDestinationData: Hashable {
+        let title: String
+        let cards: [YDMCard]
+
+        init(_ title: String, _ cards: [YDMCard]) {
+            self.title = title
+            self.cards = cards
+        }
+    }
 }
 
 #Preview {

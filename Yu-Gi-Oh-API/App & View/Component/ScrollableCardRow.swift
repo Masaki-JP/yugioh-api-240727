@@ -47,7 +47,7 @@ struct ScrollableCardRow: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     Spacer()
-                    NavigationLink("more", value: cards)
+                    NavigationLink("more", value: HomeView.NavigationDestinationData(title, cards))
                 }
                 .padding(.horizontal, 5) // ※ 1
                 ScrollView(.horizontal) {
