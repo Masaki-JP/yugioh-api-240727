@@ -82,14 +82,14 @@ struct ScrollableCardRow: View {
 
 #Preview {
     return ScrollView {
-        ScrollableCardRow("Favorites", cards: getSampleCards(20))
+        ScrollableCardRow("Favorites", cards: YDMCard.samples(20))
 
-        ScrollableCardRow("Favorites", cards: getSampleCards(39))
-        ScrollableCardRow("Favorites", cards: getSampleCards(40))
-
-        ScrollableCardRow("Favorites", cards: getSampleCards(58))
-        ScrollableCardRow("Favorites", cards: getSampleCards(59))
-        ScrollableCardRow("Favorites", cards: getSampleCards(60))
+        ScrollableCardRow("Favorites", cards: YDMCard.samples(39))
+        ScrollableCardRow("Favorites", cards: YDMCard.samples(40))
+        
+        ScrollableCardRow("Favorites", cards: YDMCard.samples(58))
+        ScrollableCardRow("Favorites", cards: YDMCard.samples(59))
+        ScrollableCardRow("Favorites", cards: YDMCard.samples(60))
     }
     .preferredColorScheme(.dark)
 }

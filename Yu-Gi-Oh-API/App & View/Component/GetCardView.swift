@@ -40,5 +40,5 @@ struct GetCardView: View {
 }
 
 #Preview {
-    return GetCardView(availableCards: getSampleCards(3))
+    return GetCardView(availableCards: YDMCard.samples(3))
 }

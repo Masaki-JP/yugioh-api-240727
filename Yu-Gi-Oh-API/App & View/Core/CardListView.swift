@@ -94,7 +94,7 @@ struct CardListView: View {
 }
 
 #Preview("Normal Case") {
-    CardListView(cards: getSampleCards(10))
+    CardListView(cards: YDMCard.samples(10))
         .preferredColorScheme(.dark)
 }
 

@@ -35,6 +35,6 @@ struct CardDetailView: View {
 
 #Preview {
     NavigationStack {
-        CardDetailView(getSampleCard())
+        CardDetailView(YDMCard.sample())
     }
 }

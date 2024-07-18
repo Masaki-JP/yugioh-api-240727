@@ -65,5 +65,5 @@ struct SecretCard: View {
 }
 
 #Preview {
-    SecretCard(getSampleCard())
+    SecretCard(YDMCard.sample())
 }

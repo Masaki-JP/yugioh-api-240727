@@ -43,5 +43,5 @@ struct HomeViewContentBody: View {
 }
 
 #Preview {
-    HomeViewContentBody(cards: getSampleCards(50))
+    HomeViewContentBody(cards: YDMCard.samples(50))
 }

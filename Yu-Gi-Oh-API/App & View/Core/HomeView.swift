@@ -91,6 +91,6 @@ private struct CardPack: Identifiable {
 }
 
 #Preview {
-    HomeView(cards: getSampleCards(50))
+    HomeView(cards: YDMCard.samples(50))
         .preferredColorScheme(.dark)
 }
