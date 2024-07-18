@@ -47,7 +47,7 @@ struct ScrollableCardRow: View {
                         .font(.title2)
                         .fontWeight(.semibold)
                     Spacer()
-                    Button("more") {}
+                    NavigationLink("more", value: cards)
                 }
                 .padding(.horizontal, 5) // ※ 1
                 ScrollView(.horizontal) {
@@ -86,7 +86,7 @@ struct ScrollableCardRow: View {
 
         ScrollableCardRow("Favorites", cards: YDMCard.samples(39))
         ScrollableCardRow("Favorites", cards: YDMCard.samples(40))
-        
+
         ScrollableCardRow("Favorites", cards: YDMCard.samples(58))
         ScrollableCardRow("Favorites", cards: YDMCard.samples(59))
         ScrollableCardRow("Favorites", cards: YDMCard.samples(60))

@@ -17,6 +17,10 @@ struct HomeView: View {
             .navigationDestination(for: YDMCard.self) {
                 CardDetailView($0)
             }
+            .navigationDestination(for: [YDMCard].self) {
+                cardList($0)
+                    .navigationTitle("Title")
+            }
         }
         .safeAreaInset(edge: .bottom) {
             HStack(spacing: 0) {
@@ -81,6 +85,32 @@ struct HomeView: View {
             else { return }
             cardsForGetCardView = .some(.init(value: cards))
             isFetching = false
+        }
+    }
+
+    func cardList(_ cards: [YDMCard]) -> some View {
+        List(cards) { card in
+            NavigationLink(value: card) {
+                HStack {
+                    Image(uiImage: .init(data: card.imageData.small)!) // ⚠️
+                        .resizable().scaledToFit()
+                        .frame(height: 75)
+                    VStack(alignment: .leading) {
+                        Text(card.name)
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .padding(.bottom, 3)
+                        Group {
+                            Text("card.isFavorite: " + card.isFavorite.description)
+                            Text("card.acquisitionDate: ")
+                            + Text(card.acquisitionDate, style: .date)
+                        }
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    }
+                    .padding(.leading, 5)
+                }
+            }
         }
     }
 }
