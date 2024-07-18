@@ -18,6 +18,15 @@ final class YDMCard { // Yu-Gi-Oh Duel Monsters
     struct ImageData: Codable {
         let normal, small: Data
     }
+
+    static func convert(dto: DTO) -> YDMCard {
+        .init(
+            name: dto.name,
+            normalSizeImageData: dto.imageData.normal,
+            smallSizeImageData: dto.imageData.small,
+            isFavorite: dto.isFavorite
+        )
+    }
 }
 
 extension YDMCard {
