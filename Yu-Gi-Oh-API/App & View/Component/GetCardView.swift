@@ -40,5 +40,6 @@ struct GetCardView: View {
 }
 
 #Preview {
-    return GetCardView(availableCards: YDMCard.samples(3))
+    GetCardView(availableCards: YDMCard.samples(3))
+        .modelContainer(for: YDMCard.self, inMemory: true)
 }
