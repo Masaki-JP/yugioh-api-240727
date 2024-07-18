@@ -1,27 +1,27 @@
 import UIKit
 
 struct YuGiOhAPIClient {
-    func fetchCards(_ numberOfCards: Int) async -> [YDMCard]? {
+    func fetchCards(_ numberOfCards: Int) async -> [YDMCard.DTO]? {
         guard numberOfCards > 0 else { return nil }
-        return await withTaskGroup(of: YDMCard?.self) { group in
+        return await withTaskGroup(of: YDMCard.DTO?.self) { group in
             for _ in 0..<numberOfCards {
                 try? await Task.sleep(for: .seconds(0.01))
                 group.addTask(operation: _fetch)
             }
-            let cards = await group.compactMap { $0 }.reduce(into: [YDMCard]()) { $0.append($1) }
+            let cards = await group.compactMap { $0 }.reduce(into: [YDMCard.DTO]()) { $0.append($1) }
             return cards.count == numberOfCards ? cards : nil
         }
     }
 
-    @Sendable private func _fetch() async -> YDMCard? {
+    @Sendable private func _fetch() async -> YDMCard.DTO? {
         guard
             let url = URL(string: "https://db.ygoprodeck.com/api/v7/randomcard.php"),
             let (data, _) = try? await URLSession.shared.data(from: url),
-            let cardDTO = try? JSONDecoder().decode(CardDTO.self, from: data),
-            let normalSizeImageURLString = cardDTO.card_images.first?.image_url,
+            let responseDTO = try? JSONDecoder().decode(ResponseDTO.self, from: data),
+            let normalSizeImageURLString = responseDTO.card_images.first?.image_url,
             let normalSizeImageURL = URL(string: normalSizeImageURLString),
             let (normalSizeImageData, _) = try? await URLSession.shared.data(from: normalSizeImageURL),
-            let smallSizeImageURLString = cardDTO.card_images.first?.image_url_small,
+            let smallSizeImageURLString = responseDTO.card_images.first?.image_url_small,
             let smallSizeImageURL = URL(string: smallSizeImageURLString),
             let (smallSizeImageData, _) = try? await URLSession.shared.data(from: smallSizeImageURL),
             let uiImage = UIImage(data: smallSizeImageData),
@@ -29,13 +29,13 @@ struct YuGiOhAPIClient {
         else { return nil }
 
         return .init(
-            name: cardDTO.name,
+            name: responseDTO.name,
             normalSizeImageData: normalSizeImageData,
             smallSizeImageData: smallSizeImageData
         )
     }
 
-    private struct CardDTO: Decodable {
+    private struct ResponseDTO: Decodable {
         let name: String
         let card_images: [CardImage]
 
