@@ -1,5 +1,6 @@
 import SwiftUI
 
+@MainActor
 struct HomeView: View {
     let cards: [YDMCard]
     @State private var isScrolling = false
@@ -81,8 +82,9 @@ struct HomeView: View {
         guard isFetching == false else { return }
         isFetching = true
         asynchronousTask = .init {
-            guard let cards = await YuGiOhAPIClient().fetchCards(5)
+            guard let cardDTOs = await YuGiOhAPIClient().fetchCards(5)
             else { return }
+            let cards = cardDTOs.map(YDMCard.convert)
             cardsForGetCardView = .some(.init(value: cards))
             isFetching = false
         }
