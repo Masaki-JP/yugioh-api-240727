@@ -54,7 +54,7 @@ struct ScrollableCardRow: View {
                     LazyHStack {
                         ForEach(targetCards.chuncked(numberOfColumns), id: \.self) { chunk in
                             VStack(spacing: 10) {
-                                ForEach(chunk.reversed(), id: \.self) { card in
+                                ForEach(chunk, id: \.self) { card in
                                     NavigationLink(value: card) {
                                         Image(uiImage: .init(data: card.imageData.small)!)
                                             .resizable()
