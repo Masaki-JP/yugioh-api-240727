@@ -1,8 +1,7 @@
 import SwiftUI
-import SwiftData
 
 struct HomeView: View {
-    @Query private var cards: [YDMCard]
+    let cards: [YDMCard]
     @State private var isScrolling = false
     @State private var cardsForGetCardView: CardPack?
     @State private var asynchronousTask: Task<Void, Never>?
@@ -92,6 +91,6 @@ private struct CardPack: Identifiable {
 }
 
 #Preview {
-    HomeView()
+    HomeView(cards: getSampleCards(50))
         .preferredColorScheme(.dark)
 }
