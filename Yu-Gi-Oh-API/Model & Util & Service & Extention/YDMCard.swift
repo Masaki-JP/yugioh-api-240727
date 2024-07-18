@@ -21,6 +21,22 @@ final class YDMCard { // Yu-Gi-Oh Duel Monsters
 }
 
 extension YDMCard {
+    struct DTO: Decodable {
+        let name: String
+        let imageData: ImageData
+        var isFavorite: Bool
+        let acquisitionDate: Date
+
+        init(name: String, normalSizeImageData: Data, smallSizeImageData: Data, isFavorite: Bool = false) {
+            self.name = name
+            self.imageData = .init(normal: normalSizeImageData, small: smallSizeImageData)
+            self.isFavorite = isFavorite
+            self.acquisitionDate = .init()
+        }
+    }
+}
+
+extension YDMCard {
     static func sample() -> YDMCard {
         let uiImage_normal = UIImage(named: "Dark_Magician_Normal")!
         let uiImage_small = UIImage(named: "Dark_Magician_Small")!
