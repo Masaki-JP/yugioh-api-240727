@@ -1,5 +1,6 @@
 import SwiftUI
 
+@MainActor
 struct HomeView: View {
     let cards: [YDMCard]
     @State private var isScrolling = false
