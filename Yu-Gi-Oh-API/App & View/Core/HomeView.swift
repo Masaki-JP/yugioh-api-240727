@@ -77,7 +77,7 @@ struct HomeView: View {
         guard isFetching == false else { return }
         isFetching = true
         asynchronousTask = .init {
-            guard let cards = await YuGiOhAPIClient().fetchCards(3)
+            guard let cards = await YuGiOhAPIClient().fetchCards(5)
             else { return }
             cardsForGetCardView = .some(.init(value: cards))
             isFetching = false
