@@ -6,16 +6,13 @@
 /// https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Dark%20Magician
 
 import SwiftUI
-import SwiftData
 
 struct ContentView: View {
-    @Query private var cards: [YDMCard]
-
     var body: some View {
         TabView {
-            HomeView(cards: cards)
+            HomeView()
                 .tabItem { Label("Home", systemImage: "house") }
-            CardListView(cards: cards)
+            CardListView()
                 .tabItem { Label("List", systemImage: "list.bullet") }
             SettingView()
                 .tabItem { Label("Setting", systemImage: "gearshape") }

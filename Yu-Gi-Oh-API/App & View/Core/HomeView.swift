@@ -1,8 +1,9 @@
 import SwiftUI
+import SwiftData
 
 @MainActor
 struct HomeView: View {
-    let cards: [YDMCard]
+    @Query private var cards: [YDMCard]
     @State private var isScrolling = false
     @State private var cardsForGetCardView: CardPack?
     @State private var asynchronousTask: Task<Void, Never>?
@@ -13,14 +14,21 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             HomeViewContent {
-                HomeViewContentBody(cards: cards)
-                    .safeAreaInset(edge: .bottom) {
-                        HStack(spacing: 0) {
-                            if isScrolling { Spacer() }
-                            getCardsButton.padding(.trailing, isScrolling ? 15 : 0)
+                if cards.isEmpty == false {
+                    HomeViewContentBody(cards: cards)
+                        .safeAreaInset(edge: .bottom) {
+                            HStack(spacing: 0) {
+                                if isScrolling { Spacer() }
+                                getCardsButton.padding(.trailing, isScrolling ? 15 : 0)
+                            }
+                            .padding(.bottom, 10)
                         }
-                        .padding(.bottom, 10)
+                } else {
+                    VStack(spacing: .zero) {
+                        grayOutCards
+                        getSpecialCardsButton
                     }
+                }
             }
             .navigationDestination(for: YDMCard.self) {
                 CardDetailView($0)
@@ -115,6 +123,54 @@ struct HomeView: View {
             }
         }
     }
+
+    var grayOutCards: some View {
+        VStack(spacing: 20) {
+            HStack(spacing: 10) {
+                ForEach(0..<5) { _ in
+                    Image(.darkMagicianSmall)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 100)
+                        .rotationEffect(.degrees(10.0))
+                }
+            }
+            HStack(spacing: 10) {
+                ForEach(0..<4) { _ in
+                    Image(.darkMagicianSmall)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 100)
+                        .rotationEffect(.degrees(10.0))
+                }
+            }
+            .offset(y: -30.0)
+        }
+        .grayscale(1.0)
+    }
+
+    var getSpecialCardsButton: some View {
+        Button {
+            guard isFetching == false else { return }
+            isFetching = true
+            asynchronousTask = .init {
+                guard let cardDTOs = await YuGiOhAPIClient().fetchSpecialCards()
+                else { return }
+                let cards = cardDTOs.map(YDMCard.convert)
+                cardsForGetCardView = .some(.init(value: cards))
+                isFetching = false
+            }
+        } label: {
+            Text("Let's get special cards!!")
+                .font(.headline)
+                .fontWeight(.semibold)
+                .foregroundStyle(.white)
+                .padding(.vertical, 5)
+                .padding(.horizontal, 20)
+                .background(.orange)
+                .clipShape(.capsule)
+        }
+    }
 }
 
 private struct CardPack: Identifiable {
@@ -134,7 +190,18 @@ extension HomeView {
     }
 }
 
-#Preview {
-    HomeView(cards: YDMCard.samples(50))
+#Preview("Normal Case") {
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: YDMCard.self, configurations: config)
+    YDMCard.samples(10).forEach { container.mainContext.insert($0) }
+
+    return HomeView()
+        .modelContainer(container)
+        .preferredColorScheme(.dark)
+}
+
+#Preview("Empty Case") {
+    HomeView()
+        .modelContainer(for: YDMCard.self, inMemory: true)
         .preferredColorScheme(.dark)
 }

@@ -1,7 +1,8 @@
 import SwiftUI
+import SwiftData
 
 struct CardListView: View {
-    let cards: [YDMCard]
+    @Query private var cards: [YDMCard]
     @Environment(\.modelContext) private var modelContext
     @State private var isEditing = false
     @State private var selectedCards: Set<YDMCard> = .init()
@@ -94,11 +95,17 @@ struct CardListView: View {
 }
 
 #Preview("Normal Case") {
-    CardListView(cards: YDMCard.samples(10))
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: YDMCard.self, configurations: config)
+    YDMCard.samples(10).forEach { container.mainContext.insert($0) }
+
+    return CardListView()
+        .modelContainer(container)
         .preferredColorScheme(.dark)
 }
 
 #Preview("Empty Case") {
-    CardListView(cards: [])
+    CardListView()
+        .modelContainer(for: YDMCard.self, inMemory: true)
         .preferredColorScheme(.dark)
 }
