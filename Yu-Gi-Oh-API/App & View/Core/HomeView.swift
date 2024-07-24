@@ -173,6 +173,7 @@ struct HomeView: View {
                 .background(.orange)
                 .clipShape(.capsule)
         }
+        .conditionalEffect(.repeat(.glow(color: .white, radius: 50), every: 1.5), condition: true)
     }
 }
 
