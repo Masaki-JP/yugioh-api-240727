@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import Pow
 
 @MainActor
 struct HomeView: View {
@@ -125,10 +126,12 @@ struct HomeView: View {
     }
 
     var grayOutCards: some View {
-        VStack(spacing: 20) {
+        let resources: [ImageResource] = [.blueEyesWhiteDragonSmall, .mirrorForceSmall, .jinzoSmall, .relinquishedSmall, .polymerizationSmall, .darkMagicianSmall, .destinyBoardSmall, .xyzDragonCannonSmall, .monsterRebornSmall]
+
+       return VStack(spacing: 20) {
             HStack(spacing: 10) {
-                ForEach(0..<5) { _ in
-                    Image(.darkMagicianSmall)
+                ForEach(resources[0..<5], id: \.self) { resource in
+                    Image(resource)
                         .resizable()
                         .scaledToFit()
                         .frame(height: 100)
@@ -136,8 +139,8 @@ struct HomeView: View {
                 }
             }
             HStack(spacing: 10) {
-                ForEach(0..<4) { _ in
-                    Image(.darkMagicianSmall)
+                ForEach(resources[5..<9], id: \.self) { resource in
+                    Image(resource)
                         .resizable()
                         .scaledToFit()
                         .frame(height: 100)
