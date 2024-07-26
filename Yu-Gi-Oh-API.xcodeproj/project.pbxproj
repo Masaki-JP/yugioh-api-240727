@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C014D862C537FBD00407412 /* RequestObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C014D852C537FBD00407412 /* RequestObserver.swift */; };
 		4C13261E2C39064700A279DB /* ArrayExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13261D2C39064700A279DB /* ArrayExtentions.swift */; };
 		4C46F9622C33EF3400547832 /* VerticalOffsetPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46F9612C33EF3400547832 /* VerticalOffsetPreferenceKey.swift */; };
 		4C46F9642C33EF5300547832 /* IsScrollingPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C46F9632C33EF5300547832 /* IsScrollingPreferenceKey.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C014D852C537FBD00407412 /* RequestObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestObserver.swift; sourceTree = "<group>"; };
 		4C13261D2C39064700A279DB /* ArrayExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtentions.swift; sourceTree = "<group>"; };
 		4C46F9612C33EF3400547832 /* VerticalOffsetPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalOffsetPreferenceKey.swift; sourceTree = "<group>"; };
 		4C46F9632C33EF5300547832 /* IsScrollingPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IsScrollingPreferenceKey.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				4C61C2FF2C36757800816CC1 /* IsFetchingPreferenceKey.swift */,
 				4C13261D2C39064700A279DB /* ArrayExtentions.swift */,
 				4CF3259D2C397CC3004907AB /* HelperFunctions.swift */,
+				4C014D852C537FBD00407412 /* RequestObserver.swift */,
 			);
 			path = "Model & Util & Service & Extention";
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				4CE1BAD12C013FF0003BA615 /* CardDetailView.swift in Sources */,
 				4C9CC7F72C30449800F58C9E /* CardListView.swift in Sources */,
 				4C72C3002C31A20F00C585D2 /* ScrollableCardRow.swift in Sources */,
+				4C014D862C537FBD00407412 /* RequestObserver.swift in Sources */,
 				4C9947F12C351A8300641AB4 /* GetCardView.swift in Sources */,
 				4C46F9642C33EF5300547832 /* IsScrollingPreferenceKey.swift in Sources */,
 				4C9CC7F52C3043FE00F58C9E /* SettingView.swift in Sources */,
