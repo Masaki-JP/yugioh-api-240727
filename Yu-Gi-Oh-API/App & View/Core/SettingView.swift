@@ -3,6 +3,7 @@ import SwiftData
 
 struct SettingView: View {
     @Environment(\.modelContext) private var modelContext
+    @Query private var cards: [YDMCard]
     @State private var isShowingAlert = false
 
     var body: some View {
@@ -11,6 +12,7 @@ struct SettingView: View {
                 Button("データの全削除", role: .destructive) {
                     isShowingAlert = true
                 }
+                .disabled(cards.isEmpty)
             }
             .alert("確認", isPresented: $isShowingAlert) {
                 Button("削除する", role: .destructive) {
