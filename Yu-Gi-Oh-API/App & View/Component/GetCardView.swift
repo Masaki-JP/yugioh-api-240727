@@ -9,12 +9,12 @@ struct GetCardView: View {
         if availableCards.isEmpty == false {
             ScrollView {
                 VStack(spacing: 0) {
-                    ForEach(availableCards) { card in
+                    ForEach(availableCards.indices, id: \.self) { i in
                         VStack {
-                            SecretCard(card)
+                            SecretCard(availableCards[i])
                                 .frame(maxWidth: 400)
-                            if card !== availableCards.last! { // ⚠️ Force Unwrap
-                                Text("Swipe up to next card")
+                            if availableCards[i] !== availableCards.last! { // ⚠️ Force Unwrap
+                                Text("Swipe up to next card (\(i+1)/\(availableCards.count))")
                                     .font(.title3)
                                     .fontWeight(.semibold)
                             } else {
