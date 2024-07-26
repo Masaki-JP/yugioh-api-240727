@@ -1,9 +1,9 @@
 import UIKit
 
-struct YuGiOhAPIClient {
+enum YuGiOhAPIClient {
     static private let requestObserver = RequestObserver()
 
-    func fetchCards(_ numberOfCards: Int) async -> [YDMCard.DTO]? {
+    static func fetchCards(_ numberOfCards: Int) async -> [YDMCard.DTO]? {
         guard numberOfCards > 0 else { return nil }
         return await withTaskGroup(of: YDMCard.DTO?.self) { group in
             for _ in 0..<numberOfCards {
@@ -57,7 +57,7 @@ struct YuGiOhAPIClient {
 }
 
 extension YuGiOhAPIClient {
-    func fetchSpecialCards() async -> [YDMCard.DTO]? {
+    static func fetchSpecialCards() async -> [YDMCard.DTO]? {
         let cardInfoList: [(name: String, cardImagesIndex: Int)] = [
             ("Dark Magician", 2), ("Dark Magician Girl", 0), ("Blue-Eyes White Dragon", 0), ("Blue-Eyes Ultimate Dragon", 0), ("Red-Eyes Black Dragon", 1), ("Relinquished", 0), ("XYZ-Dragon Cannon", 1), ("Jinzo", 0), ("Summoned Skull", 0), ("Dark Necrofear", 0), ("Monster Reborn", 1), ("Axe of Despair", 0), ("Polymerization", 0), ("Harpie's Feather Duster", 0), ("Swords of Revealing Light", 0), ("Mirror Force", 0), ("Destiny Board", 0), ("Call of the Haunted", 0), ("Magic Cylinder", 0), ("Skull Dice", 0)
         ]
