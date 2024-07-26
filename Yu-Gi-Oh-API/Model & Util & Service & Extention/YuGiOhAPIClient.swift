@@ -1,6 +1,8 @@
 import UIKit
 
 struct YuGiOhAPIClient {
+    static private let requestObserver = RequestObserver()
+
     func fetchCards(_ numberOfCards: Int) async -> [YDMCard.DTO]? {
         guard numberOfCards > 0 else { return nil }
         return await withTaskGroup(of: YDMCard.DTO?.self) { group in
@@ -15,15 +17,21 @@ struct YuGiOhAPIClient {
         @Sendable func _fetch() async -> YDMCard.DTO? {
             guard
                 let url = URL(string: "https://db.ygoprodeck.com/api/v7/randomcard.php"),
+                case let delayTime = await Self.requestObserver.apply(),
+                case _ = try? await Task.sleep(for: .seconds(delayTime ?? 0.0)),
                 let (data, _) = try? await URLSession.shared.data(from: url),
                 let responseDTO = try? JSONDecoder().decode(ResponseDTO.self, from: data),
                 let normalSizeImageURLString = responseDTO.card_images.first?.image_url,
                 let normalSizeImageURL = URL(string: normalSizeImageURLString),
+                case let delayTime = await Self.requestObserver.apply(),
+                case _ = try? await Task.sleep(for: .seconds(delayTime ?? 0.0)),
                 let (normalSizeImageData, _) = try? await URLSession.shared.data(from: normalSizeImageURL),
                 let uiImage = UIImage(data: normalSizeImageData),
                 let normalSizeImageData = uiImage.jpegData(compressionQuality: 0.0),
                 let smallSizeImageURLString = responseDTO.card_images.first?.image_url_small,
                 let smallSizeImageURL = URL(string: smallSizeImageURLString),
+                case let delayTime = await Self.requestObserver.apply(),
+                case _ = try? await Task.sleep(for: .seconds(delayTime ?? 0.0)),
                 let (smallSizeImageData, _) = try? await URLSession.shared.data(from: smallSizeImageURL),
                 let uiImage = UIImage(data: smallSizeImageData),
                 let smallSizeImageData = uiImage.jpegData(compressionQuality: 0.0)
@@ -73,23 +81,26 @@ extension YuGiOhAPIClient {
         @Sendable func fetchSpecialCard(name: String, cardImagesIndex: Int) async -> YDMCard.DTO? {
             guard
                 let url = URL(string: "https://db.ygoprodeck.com/api/v7/cardinfo.php?name=" + name),
+                case let delayTime = await Self.requestObserver.apply(),
+                case _ = try? await Task.sleep(for: .seconds(delayTime ?? 0.0)),
                 let (data, _) = try? await URLSession.shared.data(from: url),
                 let responseDTO2 = try? JSONDecoder().decode(ResponseDTO.self, from: data),
                 let responseDTO = responseDTO2.data.first,
-
                 responseDTO.card_images.count >= cardImagesIndex,
                 case let normalSizeImageURLString = responseDTO.card_images[cardImagesIndex].image_url,
                 let normalSizeImageURL = URL(string: normalSizeImageURLString),
+                case let delayTime = await Self.requestObserver.apply(),
+                case _ = try? await Task.sleep(for: .seconds(delayTime ?? 0.0)),
                 let (normalSizeImageData, _) = try? await URLSession.shared.data(from: normalSizeImageURL),
                 let uiImage = UIImage(data: normalSizeImageData),
                 let normalSizeImageData = uiImage.jpegData(compressionQuality: 0.0),
-
                 case let smallSizeImageURLString = responseDTO.card_images[cardImagesIndex].image_url_small,
                 let smallSizeImageURL = URL(string: smallSizeImageURLString),
+                case let delayTime = await Self.requestObserver.apply(),
+                case _ = try? await Task.sleep(for: .seconds(delayTime ?? 0.0)),
                 let (smallSizeImageData, _) = try? await URLSession.shared.data(from: smallSizeImageURL),
                 let uiImage = UIImage(data: smallSizeImageData),
                 let smallSizeImageData = uiImage.jpegData(compressionQuality: 0.0)
-
             else { return nil }
 
             return .init(
