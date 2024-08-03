@@ -68,6 +68,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C4352CE2C5E61ED00F0B530 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4CE1BACC2C013F70003BA615 /* YuGiOhAPIClient.swift */,
+				4C014D852C537FBD00407412 /* RequestObserver.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4C4352CF2C5E61F900F0B530 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4CE1BACE2C013F87003BA615 /* YDMCard.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4C4352D02C5E620600F0B530 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				4C13261D2C39064700A279DB /* ArrayExtentions.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		4C4352D12C5E621F00F0B530 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				4C46F9652C33EF9300547832 /* ScrollObserver.swift */,
+				4C46F9612C33EF3400547832 /* VerticalOffsetPreferenceKey.swift */,
+				4C46F9632C33EF5300547832 /* IsScrollingPreferenceKey.swift */,
+				4C61C2FF2C36757800816CC1 /* IsFetchingPreferenceKey.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		4C8FA69F2C00F5590001FE3F = {
 			isa = PBXGroup;
 			children = (
@@ -88,7 +124,10 @@
 			isa = PBXGroup;
 			children = (
 				4C9947C92C342A9200641AB4 /* App & View */,
-				4C9947CA2C342A9600641AB4 /* Model & Util & Service & Extention */,
+				4C4352CF2C5E61F900F0B530 /* Model */,
+				4C4352CE2C5E61ED00F0B530 /* Service */,
+				4C4352D12C5E621F00F0B530 /* Utility */,
+				4C4352D02C5E620600F0B530 /* Extention */,
 				4C8FA6AF2C00F55B0001FE3F /* Assets.xcassets */,
 				4C8FA6B12C00F55B0001FE3F /* Preview Content */,
 			);
@@ -110,21 +149,6 @@
 				4C9948142C35A5BC00641AB4 /* Component */,
 			);
 			path = "App & View";
-			sourceTree = "<group>";
-		};
-		4C9947CA2C342A9600641AB4 /* Model & Util & Service & Extention */ = {
-			isa = PBXGroup;
-			children = (
-				4CE1BACE2C013F87003BA615 /* YDMCard.swift */,
-				4C46F9612C33EF3400547832 /* VerticalOffsetPreferenceKey.swift */,
-				4C46F9632C33EF5300547832 /* IsScrollingPreferenceKey.swift */,
-				4C46F9652C33EF9300547832 /* ScrollObserver.swift */,
-				4CE1BACC2C013F70003BA615 /* YuGiOhAPIClient.swift */,
-				4C61C2FF2C36757800816CC1 /* IsFetchingPreferenceKey.swift */,
-				4C13261D2C39064700A279DB /* ArrayExtentions.swift */,
-				4C014D852C537FBD00407412 /* RequestObserver.swift */,
-			);
-			path = "Model & Util & Service & Extention";
 			sourceTree = "<group>";
 		};
 		4C9948132C35A5B700641AB4 /* Core */ = {
