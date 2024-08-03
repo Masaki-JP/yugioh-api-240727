@@ -1,10 +1,3 @@
-///
-/// API Guide
-/// https://ygoprodeck.com/api-guide/
-///
-/// Dark Magician
-/// https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Dark%20Magician
-
 import SwiftUI
 
 struct ContentView: View {
