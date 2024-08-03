@@ -29,7 +29,6 @@
 		4CE1BACD2C013F70003BA615 /* YuGiOhAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1BACC2C013F70003BA615 /* YuGiOhAPIClient.swift */; };
 		4CE1BACF2C013F87003BA615 /* YDMCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1BACE2C013F87003BA615 /* YDMCard.swift */; };
 		4CE1BAD12C013FF0003BA615 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1BAD02C013FF0003BA615 /* CardDetailView.swift */; };
-		4CF3259E2C397CC3004907AB /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF3259D2C397CC3004907AB /* HelperFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +54,6 @@
 		4CE1BACC2C013F70003BA615 /* YuGiOhAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YuGiOhAPIClient.swift; sourceTree = "<group>"; };
 		4CE1BACE2C013F87003BA615 /* YDMCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMCard.swift; sourceTree = "<group>"; };
 		4CE1BAD02C013FF0003BA615 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
-		4CF3259D2C397CC3004907AB /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +122,6 @@
 				4CE1BACC2C013F70003BA615 /* YuGiOhAPIClient.swift */,
 				4C61C2FF2C36757800816CC1 /* IsFetchingPreferenceKey.swift */,
 				4C13261D2C39064700A279DB /* ArrayExtentions.swift */,
-				4CF3259D2C397CC3004907AB /* HelperFunctions.swift */,
 				4C014D852C537FBD00407412 /* RequestObserver.swift */,
 			);
 			path = "Model & Util & Service & Extention";
@@ -236,7 +233,6 @@
 				4C46F9662C33EF9300547832 /* ScrollObserver.swift in Sources */,
 				4C46F9682C33F3B600547832 /* HomeViewContentBody.swift in Sources */,
 				4C8FA6AC2C00F5590001FE3F /* Yu_Gi_Oh_APIApp.swift in Sources */,
-				4CF3259E2C397CC3004907AB /* HelperFunctions.swift in Sources */,
 				4CE1BAD12C013FF0003BA615 /* CardDetailView.swift in Sources */,
 				4C9CC7F72C30449800F58C9E /* CardListView.swift in Sources */,
 				4C72C3002C31A20F00C585D2 /* ScrollableCardRow.swift in Sources */,
