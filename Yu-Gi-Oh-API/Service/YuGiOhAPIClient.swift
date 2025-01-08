@@ -34,7 +34,7 @@ enum YuGiOhAPIClient {
                 case let delayTime = await Self.requestObserver.apply(),
                 case _ = try? await Task.sleep(for: .seconds(delayTime ?? 0.0)),
                 let (data, _) = try? await URLSession.shared.data(from: url),
-                let responseDTO = try? JSONDecoder().decode(ResponseDTO.self, from: data),
+                let responseDTO = try? JSONDecoder().decode(ResponseDTO.self, from: data).data.first,
                 let normalSizeImageURLString = responseDTO.card_images.first?.image_url,
                 let normalSizeImageURL = URL(string: normalSizeImageURLString),
                 case let delayTime = await Self.requestObserver.apply(),
@@ -60,12 +60,16 @@ enum YuGiOhAPIClient {
 
         /// レスポンスとして取得したJSONのDTO。``YuGiOhAPIClient/fetchCards(_:)``内部でのみ使用する。
         struct ResponseDTO: Decodable {
-            let name: String
-            let card_images: [CardImage]
+            let data: [Self.Data]
 
-            struct CardImage: Decodable {
-                let image_url: String
-                let image_url_small: String
+            struct Data: Decodable {
+                let name: String
+                let card_images: [CardImage]
+
+                struct CardImage: Decodable {
+                    let image_url: String
+                    let image_url_small: String
+                }
             }
         }
     }
